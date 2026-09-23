@@ -10,11 +10,13 @@
   outputs: [image]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Licensing differs per variant (dev, schnell, ...) — check each one
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 165.44
   runs_on: [gpu]
   specialization: >
     Leads open models on photorealism and output quality. Pick it when the result has to
@@ -37,11 +39,13 @@
   outputs: [image]
   license: Stability Community License
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Free below an annual-revenue threshold; a commercial license is required above it
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 66.67
   runs_on: [gpu]
   specialization: >
     Deepest ecosystem and the most flexible for fine-tuning. LoRA, ControlNet and the rest
@@ -64,11 +68,13 @@
   outputs: [image]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: License needs verification
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 30.64
   runs_on: [gpu]
   specialization: >
     Matches or beats FLUX.2 [dev], HunyuanImage 3.0 and Imagen 4 while needing only a few
@@ -91,11 +97,13 @@
   outputs: [image]
   license: Apache-2.0
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 53.74
   runs_on: [gpu]
   specialization: >
     An image model that is unrestricted for commercial use, and reported to render text

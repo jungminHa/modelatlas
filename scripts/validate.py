@@ -3,7 +3,7 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catalog import (load, CATEGORIES, TYPES, OPENNESS, COMMERCIAL,
-                     REQUIRED, NULLABLE_REQUIRED)
+                     REQUIRED, NULLABLE_REQUIRED, OPTIONAL_ENUMS)
 
 
 def main():
@@ -35,6 +35,9 @@ def main():
             errs.append(f'{where} — openness must be one of {sorted(OPENNESS)}')
         if str(m.get("commercial_use")) not in COMMERCIAL:
             errs.append(f'{where} — commercial_use must be one of {sorted(COMMERCIAL)}')
+        for k, allowed in OPTIONAL_ENUMS.items():
+            if k in m and m[k] is not None and str(m[k]) not in allowed:
+                errs.append(f"{where} — {k} must be one of {sorted(allowed)}")
         for side in ("inputs", "outputs"):
             for t in (m.get(side) or []):
                 if t not in TYPES:

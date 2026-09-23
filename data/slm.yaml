@@ -9,12 +9,14 @@
   outputs: [text]
   license: Gemma Terms of Use
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Google Gemma Terms of Use apply; check the prohibited-use clauses
   params: null
   params_b: null
   context: null
   vram_min_gb: 16
+  download_gb: null
   runs_on: [gpu, cpu, apple-silicon]
   specialization: >
     Among the strongest small models that fit under 16GB. The default pick for laptops

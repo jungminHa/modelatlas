@@ -9,11 +9,13 @@
   outputs: [text]
   license: MIT
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: 1.55B
   params_b: 1.55
   vram_min_gb: null
+  download_gb: 23.01
   runs_on: [gpu, cpu]
   specialization: >
     Still the safest all-rounder for general transcription. Broad language coverage makes
@@ -35,11 +37,13 @@
   outputs: [text]
   license: Apache-2.0
   openness: open-weight
+  redistributable: check
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: null
   runs_on: [gpu]
   specialization: >
     Covers 52 languages and dialects, handling language identification, recognition and
@@ -63,11 +67,13 @@
   outputs: [text]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Verify the NVIDIA model license
   params: 2.5B
   params_b: 2.5
   vram_min_gb: null
+  download_gb: 4.77
   runs_on: [gpu]
   specialization: >
     Currently the most accurate option for English. Beats Whisper on English-only workloads.
@@ -89,11 +95,13 @@
   outputs: [text]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Verify the NVIDIA model license
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 2.3
   runs_on: [gpu]
   specialization: >
     The fastest self-hostable option for batch throughput. Pick it when transcribing a
@@ -116,11 +124,13 @@
   outputs: [text]
   license: MIT
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: smallest model 27MB
   params_b: 0.027
   vram_min_gb: 0
+  download_gb: 0.23
   runs_on: [cpu, edge]
   specialization: >
     Built for real-time recognition on constrained hardware. At 27MB the smallest model

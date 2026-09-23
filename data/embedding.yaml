@@ -10,11 +10,13 @@
   outputs: [embedding]
   license: Apache-2.0
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: 8B
   params_b: 8
   vram_min_gb: null
+  download_gb: 14.11
   runs_on: [gpu]
   specialization: >
     Covers 100+ natural and programming languages and leads the MTEB snapshot. Accepts
@@ -40,11 +42,13 @@
   outputs: [embedding]
   license: MIT
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 4.27
   runs_on: [gpu, cpu]
   specialization: >
     The self-hosted multilingual standard across 100+ languages. The default alternative to
@@ -67,11 +71,13 @@
   outputs: [score]
   license: Apache-2.0
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 2.14
   runs_on: [gpu, cpu]
   specialization: >
     Reranks embedding search results. Paired with BGE-M3 it completes a two-stage retrieval
@@ -93,11 +99,13 @@
   outputs: [embedding]
   license: Apache-2.0
   openness: open-weight
+  redistributable: check
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: null
   runs_on: [gpu]
   specialization: >
     Places text and images in one vector space, so you can retrieve documents by image or

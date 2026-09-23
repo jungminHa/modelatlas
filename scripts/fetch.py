@@ -20,6 +20,8 @@ from catalog import load, ROOT, vram_requirement
 
 MODELS_DIR = os.path.join(ROOT, "models")
 MANIFEST = os.path.join(MODELS_DIR, "manifest.json")
+# Never fill the disk completely — the OS and the download's own temp files need room.
+DISK_HEADROOM_GB = 20
 
 
 def repo_id(m):
@@ -190,6 +192,15 @@ def main():
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--yes", action="store_true", help="skip prompts (still refuses nothing)")
     ap.add_argument("--include", nargs="*", help="only these file patterns, e.g. '*.safetensors'")
+    ap.add_argument("--max-size", type=float, metavar="GB",
+                    help="only models whose download is at most this many GB")
+    ap.add_argument("--redistributable", action="store_true",
+                    help="only models whose license permits rehosting the weights")
+    ap.add_argument("--commercial", action="store_true",
+                    help="only models free for commercial use")
+    ap.add_argument("--fit-disk", action="store_true",
+                    help="stop before filling the disk (keeps 20GB headroom)")
+    ap.add_argument("--dry-run", action="store_true", help="show the plan, download nothing")
     a = ap.parse_args()
 
     models, _ = load()
@@ -199,19 +210,68 @@ def main():
         return cmd_list(models) or 0
     if a.status:
         return cmd_status(models) or 0
-    if not a.ids:
+    filtering = a.max_size or a.redistributable or a.commercial
+    if not a.ids and not filtering:
         ap.print_help()
         return 1
 
     man = load_manifest()
-    done = 0
-    for mid in a.ids:
-        if mid not in index:
-            print(f"  ✕ unknown model id: {mid}")
+
+    if a.ids:
+        sel = []
+        for mid in a.ids:
+            if mid not in index:
+                print(f"  ✕ unknown model id: {mid}")
+            else:
+                sel.append(index[mid])
+    else:
+        sel = [m for m in models if repo_id(m)]
+        if a.max_size:
+            sel = [m for m in sel if (m.get("download_gb") or 1e9) <= a.max_size]
+        if a.redistributable:
+            sel = [m for m in sel if m.get("redistributable") == "yes"]
+        if a.commercial:
+            sel = [m for m in sel if m.get("commercial_use") == "yes"]
+        sel.sort(key=lambda m: m.get("download_gb") or 1e9)
+
+    # Skip what is already local
+    already = [m for m in sel if m["id"] in man["models"]]
+    sel = [m for m in sel if m["id"] not in man["models"]]
+
+    free = shutil.disk_usage(ROOT).free / 1024**3
+    planned, running, skipped = [], 0.0, []
+    for m in sel:
+        gb = m.get("download_gb") or 0
+        if a.fit_disk and running + gb > free - DISK_HEADROOM_GB:
+            skipped.append(m)
             continue
-        if fetch_one(index[mid], a, man):
+        planned.append(m)
+        running += gb
+
+    print(f"\n  Selected {len(planned)} models · {running:,.1f}GB"
+          f"   (disk free {free:,.0f}GB)")
+    if already:
+        print(f"  Already local, skipping: {len(already)}")
+    if skipped:
+        print(f"  ⚠️  {len(skipped)} skipped to keep {DISK_HEADROOM_GB}GB headroom: "
+              f"{', '.join(m['id'] for m in skipped[:6])}"
+              + (" …" if len(skipped) > 6 else ""))
+    if not a.fit_disk and running > free - DISK_HEADROOM_GB:
+        print(f"  ⚠️  This exceeds free disk. Add --fit-disk to cap the selection.")
+
+    if a.dry_run:
+        print()
+        for m in planned:
+            print(f"    {m.get('download_gb') or 0:>8,.1f}GB  {m['id']:<26}"
+                  f"{m.get('license') or '—'}")
+        print("\n  --dry-run: nothing downloaded")
+        return 0
+
+    done = 0
+    for m in planned:
+        if fetch_one(m, a, man):
             done += 1
-    print(f"\n  {done}/{len(a.ids)} fetched · models/manifest.json updated")
+    print(f"\n  {done}/{len(planned)} fetched · models/manifest.json updated")
     return 0
 
 

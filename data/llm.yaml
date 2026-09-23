@@ -11,6 +11,7 @@
   outputs: [text]
   license: Modified MIT
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Verify the license text directly
   params: 2.8T total / 104B active (MoE)
@@ -18,6 +19,7 @@
   params_note: MoE — all experts must be resident; 104B active per token
   context: 1M
   vram_min_gb: null
+  download_gb: 1453.79
   runs_on: [gpu]
   specialization: >
     Strong on agentic and terminal work. Among the top open-weight models as of its
@@ -45,6 +47,7 @@
   outputs: [text]
   license: MIT
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: 552B total / 8B active (prefill), 16B active (decode)
@@ -52,6 +55,7 @@
   params_note: MoE — all experts must be resident; 8B/16B active per token
   context: 1M
   vram_min_gb: null
+  download_gb: 475.27
   runs_on: [gpu]
   specialization: >
     MoE design keeps active parameters small, so inference is cheap for its size.
@@ -83,12 +87,14 @@
   outputs: [text]
   license: GLM License
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: License changed relative to 5.2 — verify the text directly
   params: 753B
   params_b: 753
   context: null
   vram_min_gb: null
+  download_gb: 703.77
   runs_on: [gpu]
   specialization: >
     Frontier-class open-weight model, near the top on aggregate benchmarks.
@@ -115,6 +121,7 @@
   outputs: [text]
   license: MIT
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: Plain MIT, unlike the larger GLM-5.3
   params: 320B total / 18B active (MoE)
@@ -122,6 +129,7 @@
   params_note: MoE — all experts must be resident; 18B active per token
   context: null
   vram_min_gb: null
+  download_gb: 305.81
   runs_on: [gpu]
   specialization: >
     The most permissively licensed model in the GLM-5.3 family. 18B active parameters
@@ -147,12 +155,14 @@
   outputs: [text]
   license: Apache-2.0
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: Qwen models are generally Apache-2.0; confirm per model
   params: 27B (dense)
   params_b: 27
   context: null
   vram_min_gb: null
+  download_gb: 51.77
   runs_on: [gpu]
   specialization: >
     A dense 27B that fits on one GPU yet approaches frontier-class coding scores.
@@ -179,12 +189,14 @@
   outputs: [text]
   license: Apache-2.0
   openness: open-weight
+  redistributable: check
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   context: null
   vram_min_gb: null
+  download_gb: null
   runs_on: [gpu]
   specialization: >
     Ranked first on the September 2026 open-weight leaderboard.
@@ -211,12 +223,14 @@
   outputs: [text]
   license: Apache-2.0
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: 27B (dense)
   params_b: 27
   context: null
   vram_min_gb: 24
+  download_gb: 51.77
   runs_on: [gpu, apple-silicon]
   specialization: >
     Runs on a single 24GB GPU or a 32GB Mac. The safest default when local execution

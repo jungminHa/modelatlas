@@ -113,7 +113,13 @@ def build_readme(models):
     A("python3 scripts/fetch.py --list       # what can be fetched")
     A("python3 scripts/fetch.py kokoro       # download into models/")
     A("python3 scripts/fetch.py --status     # what is already local")
+    A("")
+    A("# bulk selection")
+    A("python3 scripts/fetch.py --redistributable --max-size 20 --fit-disk --dry-run")
     A("```")
+    A("")
+    A("Filters: `--max-size GB`, `--redistributable`, `--commercial`, `--fit-disk` "
+      "(keeps 20GB headroom), `--dry-run`.")
     A("")
     A("**This repository does not host model weights.** `fetch.py` pulls from the original "
       "publisher into a local `models/` directory that is gitignored, and prints the "
@@ -130,6 +136,22 @@ def build_readme(models):
     A("")
     A("`models/manifest.json` records the exact revision of everything you fetched and *is* "
       "committed, so a setup can be reproduced without shipping the weights.")
+    A("")
+    A("### Redistribution is not the same as use")
+    A("")
+    A("The `redistributable` field is separate from `commercial_use`: a model can be free "
+      "to use commercially and still forbid rehosting its weights. Measured download sizes "
+      "are in `download_gb`.")
+    A("")
+    A("| | models | total |")
+    A("|---|---|---|")
+    red = [m for m in models if m.get("redistributable") == "yes"]
+    chk = [m for m in models if m.get("redistributable") == "check"]
+    A(f"| Redistributable (Apache-2.0 / MIT) | {len(red)} | "
+      f"{sum(m.get('download_gb') or 0 for m in red):,.0f} GB |")
+    A(f"| Needs case-by-case review | {len(chk)} | "
+      f"{sum(m.get('download_gb') or 0 for m in chk):,.0f} GB |")
+    A("")
     A("")
     A("---")
     A("")

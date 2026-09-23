@@ -22,15 +22,23 @@ CATEGORY_NAMES = {
 TYPES = ["text","image","video","audio","speech","boxes","mask","embedding","score"]
 OPENNESS = {"open-source","open-weight"}
 COMMERCIAL = {"yes","no","conditional"}
+# Redistribution is a SEPARATE permission from use. A model can be free to use
+# commercially and still forbid rehosting the weights, and vice versa.
+REDISTRIBUTABLE = {"yes","no","copyleft","check"}
 
 # Keys that must be present but may hold null.
 # Matches the SCHEMA.md rule: leave unknown values null rather than guessing.
 NULLABLE_REQUIRED = {"license"}
 REQUIRED = ["id","name","category","inputs","outputs","license","openness",
             "commercial_use","specialization","sources"]
+OPTIONAL_ENUMS = {"redistributable": REDISTRIBUTABLE}
 
 
-def _norm_commercial(v):
+# Fields whose vocabulary includes bare yes/no and therefore hits the YAML trap
+YESNO_FIELDS = ("commercial_use", "redistributable")
+
+
+def _norm_yesno(v):
     """YAML 1.1 parses bare yes/no as booleans. Contributors will hit this too,
     so absorb it in the loader instead of quoting every value in the data."""
     if v is True:  return "yes"
@@ -43,7 +51,9 @@ def load():
     for f in files:
         for m in (yaml.safe_load(open(f, encoding="utf-8")) or []):
             m["_file"] = os.path.basename(f)
-            m["commercial_use"] = _norm_commercial(m.get("commercial_use"))
+            for k in YESNO_FIELDS:
+                if k in m:
+                    m[k] = _norm_yesno(m[k])
             m["links"] = m.get("links") or {}
             models.append(m)
     return models, files

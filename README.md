@@ -154,7 +154,12 @@ Guessing a VRAM requirement or a license costs the reader real money. Unverified
 python3 scripts/fetch.py --list       # what can be fetched
 python3 scripts/fetch.py kokoro       # download into models/
 python3 scripts/fetch.py --status     # what is already local
+
+# bulk selection
+python3 scripts/fetch.py --redistributable --max-size 20 --fit-disk --dry-run
 ```
+
+Filters: `--max-size GB`, `--redistributable`, `--commercial`, `--fit-disk` (keeps 20GB headroom), `--dry-run`.
 
 **This repository does not host model weights.** `fetch.py` pulls from the original publisher into a local `models/` directory that is gitignored, and prints the license terms before downloading anything.
 
@@ -165,6 +170,16 @@ That is a deliberate choice, not a limitation:
 - **Platform limits** — GitHub blocks files over 100 MiB; Git LFS on Free/Pro includes 10 GiB of storage and bandwidth.
 
 `models/manifest.json` records the exact revision of everything you fetched and *is* committed, so a setup can be reproduced without shipping the weights.
+
+### Redistribution is not the same as use
+
+The `redistributable` field is separate from `commercial_use`: a model can be free to use commercially and still forbid rehosting its weights. Measured download sizes are in `download_gb`.
+
+| | models | total |
+|---|---|---|
+| Redistributable (Apache-2.0 / MIT) | 21 | 1,263 GB |
+| Needs case-by-case review | 18 | 3,236 GB |
+
 
 ---
 

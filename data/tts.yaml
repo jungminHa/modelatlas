@@ -10,11 +10,13 @@
   outputs: [speech]
   license: Apache-2.0
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: 82M
   params_b: 0.082
   vram_min_gb: 0
+  download_gb: 0.34
   runs_on: [cpu, gpu, edge]
   specialization: >
     Very light at 82M parameters, fast enough on CPU to be the easiest final stage in a
@@ -37,11 +39,13 @@
   outputs: [speech]
   license: MIT
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: Code is MIT; check separately for constraints tied to training data provenance
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 6.28
   runs_on: [gpu]
   specialization: >
     Flow-matching based, with notably good voice cloning — give it a reference clip and it
@@ -63,6 +67,7 @@
   outputs: [speech]
   license: Coqui Public Model License
   openness: open-weight
+  redistributable: no
   commercial_use: no
   license_note: >
     Non-commercial use only. It is the most-downloaded TTS model on Hugging Face, but
@@ -70,6 +75,7 @@
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 1.95
   runs_on: [gpu]
   specialization: >
     Clones a voice into another language from a six-second sample. Capable, but the
@@ -91,11 +97,13 @@
   outputs: [speech]
   license: Apache-2.0
   openness: open-weight
+  redistributable: check
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: null
   runs_on: [gpu]
   specialization: >
     One of the safe picks for commercial deployment, and easy to pair with other models
@@ -118,11 +126,13 @@
   outputs: [speech]
   license: MIT
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 12.91
   runs_on: [gpu]
   specialization: >
     Safe for commercial deployment and still supports voice cloning — the usual license-safe

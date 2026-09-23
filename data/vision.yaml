@@ -10,11 +10,13 @@
   outputs: [boxes, mask]
   license: Apache-2.0
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 0.12
   runs_on: [gpu]
   specialization: >
     Tops both COCO and the real-world RF100-VL benchmark. The recommended accuracy-first
@@ -44,11 +46,13 @@
   outputs: [boxes, mask]
   license: AGPL-3.0
   openness: open-source
+  redistributable: copyleft
   commercial_use: conditional
   license_note: AGPL-3.0 — a separate commercial license is required for closed-source distribution
   params: Nano to Extra Large (5 sizes)
   params_b: null
   vram_min_gb: null
+  download_gb: 1.11
   runs_on: [gpu, cpu, edge]
   specialization: >
     Optimized for edge and real-time use. NMS-free end-to-end prediction simplifies
@@ -80,11 +84,13 @@
   outputs: [mask]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: Verify the Meta model license
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 6.42
   runs_on: [gpu]
   specialization: >
     Supports both promptable and open-vocabulary segmentation. Especially useful for
@@ -110,11 +116,13 @@
   outputs: [mask]
   license: Apache-2.0
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 1.67
   runs_on: [gpu]
   specialization: >
     Carries memory across video frames, so an object picked by click, box or mask is
@@ -140,11 +148,13 @@
   outputs: [text]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: License needs verification
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 2.47
   runs_on: [gpu]
   specialization: >
     Extracts text from document images. Among the leading OCR options as of 2026.
@@ -165,11 +175,13 @@
   outputs: [text, boxes]
   license: MIT
   openness: open-source
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 2.9
   runs_on: [gpu, cpu]
   specialization: >
     Handles OCR and vision-language tasks in one model. Captioning, detection and OCR are

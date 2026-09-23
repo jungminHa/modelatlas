@@ -10,11 +10,13 @@
   outputs: [text]
   license: Apache-2.0
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: Confirm the license per model size
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 16.34
   runs_on: [gpu]
   specialization: >
     Front of the pack on both quality and latency among 2026 open VLMs. Used for image
@@ -38,11 +40,13 @@
   outputs: [text]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: License needs verification
   params: null
   params_b: null
   vram_min_gb: null
+  download_gb: 200.65
   runs_on: [gpu]
   specialization: >
     Strong 3D reasoning. Reported state of the art among similarly sized open models
@@ -67,11 +71,13 @@
   outputs: [text]
   license: null
   openness: open-weight
+  redistributable: check
   commercial_use: conditional
   license_note: License needs verification
   params: 241B (flagship)
   params_b: 241
   vram_min_gb: null
+  download_gb: 15.9
   runs_on: [gpu]
   specialization: >
     A visual-resolution router improves inference efficiency. The 241B flagship is state of
@@ -94,11 +100,13 @@
   outputs: [text]
   license: Apache-2.0
   openness: open-weight
+  redistributable: yes
   commercial_use: yes
   license_note: null
   params: 32B
   params_b: 32
   vram_min_gb: null
+  download_gb: 63.61
   runs_on: [gpu]
   specialization: >
     Particularly well suited to visual agents — driving a UI, navigating documents, and
