@@ -1,0 +1,6871 @@
+{
+ "version": 1,
+ "generated": "2026-09-23",
+ "counts": {
+  "models": 41,
+  "categories": 9,
+  "edges": 716
+ },
+ "types": [
+  "text",
+  "image",
+  "video",
+  "audio",
+  "speech",
+  "boxes",
+  "mask",
+  "embedding",
+  "score"
+ ],
+ "categories": [
+  {
+   "id": "llm",
+   "name_ko": "대형 언어 모델",
+   "count": 7
+  },
+  {
+   "id": "slm",
+   "name_ko": "소형 언어 모델",
+   "count": 1
+  },
+  {
+   "id": "vlm",
+   "name_ko": "비전-언어 모델",
+   "count": 4
+  },
+  {
+   "id": "vision",
+   "name_ko": "컴퓨터 비전",
+   "count": 6
+  },
+  {
+   "id": "asr",
+   "name_ko": "음성 인식",
+   "count": 5
+  },
+  {
+   "id": "tts",
+   "name_ko": "음성 합성",
+   "count": 5
+  },
+  {
+   "id": "image-gen",
+   "name_ko": "이미지 생성",
+   "count": 4
+  },
+  {
+   "id": "video-gen",
+   "name_ko": "영상 생성",
+   "count": 5
+  },
+  {
+   "id": "embedding",
+   "name_ko": "임베딩·리랭킹",
+   "count": 4
+  }
+ ],
+ "models": [
+  {
+   "id": "whisper-large-v3",
+   "name": "Whisper large-v3",
+   "category": "asr",
+   "task": "speech-to-text",
+   "vendor": "OpenAI",
+   "inputs": [
+    "speech"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "MIT",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "1.55B",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu",
+    "cpu"
+   ],
+   "specialization": "범용 전사에서 여전히 가장 무난한 올라운더. 언어 커버리지가 넓어 입력 언어를 특정할 수 없을 때 기본값으로 쓴다.\n",
+   "strengths": [
+    "multilingual",
+    "general-purpose",
+    "permissive-license"
+   ],
+   "weaknesses": [
+    "slower-than-parakeet",
+    "not-realtime"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/openai/whisper-large-v3",
+    "github": "https://github.com/openai/whisper",
+    "paper": null
+   },
+   "released": 2023,
+   "benchmarks": [],
+   "sources": [
+    "https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-asr",
+   "name": "Qwen3-ASR",
+   "category": "asr",
+   "task": "speech-to-text",
+   "vendor": "Alibaba",
+   "inputs": [
+    "speech"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "52개 언어·방언 지원. 언어 식별, 음성 인식, 타임스탬프 예측을 한 모델로 처리한다. 자막 생성처럼 타임스탬프가 필요한 파이프라인에 적합.\n",
+   "strengths": [
+    "multilingual",
+    "timestamps",
+    "language-id"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": "2026-01",
+   "benchmarks": [],
+   "sources": [
+    "https://www.gladia.io/blog/best-open-source-speech-to-text-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "canary-qwen-2-5b",
+   "name": "NVIDIA Canary-Qwen 2.5B",
+   "category": "asr",
+   "task": "speech-to-text",
+   "vendor": "NVIDIA",
+   "inputs": [
+    "speech"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "NVIDIA 모델 라이선스 확인 필요",
+   "params": "2.5B",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "영어 정확도 기준 현재 최상위. 영어 전용 워크로드라면 Whisper 보다 낫다.\n",
+   "strengths": [
+    "english-accuracy"
+   ],
+   "weaknesses": [
+    "english-focused",
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/nvidia",
+    "github": null,
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "parakeet-tdt",
+   "name": "NVIDIA Parakeet TDT",
+   "category": "asr",
+   "task": "speech-to-text",
+   "vendor": "NVIDIA",
+   "inputs": [
+    "speech"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "NVIDIA 모델 라이선스 확인 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "자체 호스팅 가능한 것 중 배치 처리량이 가장 빠르다. 대량 아카이브를 한 번에 전사할 때 선택.\n",
+   "strengths": [
+    "throughput",
+    "batch"
+   ],
+   "weaknesses": [
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/nvidia",
+    "github": null,
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "moonshine",
+   "name": "Moonshine",
+   "category": "asr",
+   "task": "speech-to-text",
+   "vendor": "Useful Sensors",
+   "inputs": [
+    "speech"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "MIT",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "최소 모델 27MB",
+   "vram_min_gb": 0,
+   "runs_on": [
+    "cpu",
+    "edge"
+   ],
+   "specialization": "저사양 하드웨어의 실시간 인식을 목표로 만들어졌다. 최소 모델이 27MB 라 Whisper 나 NVIDIA 모델이 아예 못 도는 환경에 들어간다.\n",
+   "strengths": [
+    "edge",
+    "realtime",
+    "tiny",
+    "permissive-license"
+   ],
+   "weaknesses": [
+    "lower-accuracy-than-large-models"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/usefulsensors/moonshine",
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-embedding-8b",
+   "name": "Qwen3-Embedding-8B",
+   "category": "embedding",
+   "task": "text-embedding",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "embedding"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "8B",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "100개 이상의 자연어·프로그래밍 언어를 지원하고 MTEB 선두권. 사용자 정의 지시문을 받아 도메인별로 동작을 조정할 수 있다. 0.6B · 4B 변형이 있어 자원에 맞춰 고를 수 있다.\n",
+   "strengths": [
+    "mteb-leading",
+    "multilingual",
+    "instruction-tunable"
+   ],
+   "weaknesses": [
+    "gpu-required"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": "https://arxiv.org/abs/2506.05176"
+   },
+   "released": "2025-06",
+   "benchmarks": [
+    {
+     "name": "MTEB",
+     "value": "선두",
+     "note": "2026-09 스냅샷 기준"
+    }
+   ],
+   "sources": [
+    "https://www.bentoml.com/blog/a-guide-to-open-source-embedding-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "bge-m3",
+   "name": "BGE-M3",
+   "category": "embedding",
+   "task": "text-embedding",
+   "vendor": "BAAI",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "embedding"
+   ],
+   "license": "MIT",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu",
+    "cpu"
+   ],
+   "specialization": "100개 이상 언어를 다루는 다국어 자체 호스팅 표준. 큰 모델을 띄우기 어려운 환경에서 Qwen3 대신 쓰는 기본 선택지.\n",
+   "strengths": [
+    "multilingual",
+    "lightweight",
+    "permissive-license"
+   ],
+   "weaknesses": [
+    "below-qwen3-on-mteb"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/BAAI/bge-m3",
+    "github": "https://github.com/FlagOpen/FlagEmbedding",
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://www.bentoml.com/blog/a-guide-to-open-source-embedding-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "bge-reranker-v2",
+   "name": "BGE-reranker-v2",
+   "category": "embedding",
+   "task": "reranking",
+   "vendor": "BAAI",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "score"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu",
+    "cpu"
+   ],
+   "specialization": "임베딩 검색 결과를 재정렬한다. BGE-M3 와 묶으면 라이선스 비용 0 으로 2단계 검색 파이프라인이 완성된다.\n",
+   "strengths": [
+    "permissive-license",
+    "pairs-with-bge-m3"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/BAAI",
+    "github": "https://github.com/FlagOpen/FlagEmbedding",
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://builderai.tools/blog/best-open-source-embedding-models-2026"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-vl-embedding",
+   "name": "Qwen3-VL-Embedding",
+   "category": "embedding",
+   "task": "multimodal-embedding",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "embedding"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "텍스트와 이미지를 같은 벡터 공간에 넣는다. 이미지로 문서를 찾거나 텍스트로 이미지를 찾는 검색에 쓴다. 리랭커가 짝으로 제공된다.\n",
+   "strengths": [
+    "multimodal-retrieval",
+    "permissive-license"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": null,
+    "paper": "https://arxiv.org/abs/2601.04720"
+   },
+   "released": "2026-01",
+   "benchmarks": [],
+   "sources": [
+    "https://arxiv.org/pdf/2601.04720"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "flux-2",
+   "name": "FLUX.2",
+   "category": "image-gen",
+   "task": "text-to-image",
+   "vendor": "Black Forest Labs",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "image"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "dev / schnell 등 변형마다 라이선스가 다르다. 반드시 개별 확인",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "사실감과 출력 품질에서 오픈 모델 중 선두. 전문 작업물 품질이 필요할 때 선택.\n",
+   "strengths": [
+    "photorealism",
+    "quality"
+   ],
+   "weaknesses": [
+    "license-varies",
+    "vram-heavy"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/black-forest-labs",
+    "github": null,
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-image-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "stable-diffusion-3-5",
+   "name": "Stable Diffusion 3.5",
+   "category": "image-gen",
+   "task": "text-to-image",
+   "vendor": "Stability AI",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "image"
+   ],
+   "license": "Stability Community License",
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "연 매출 기준 이하는 무료. 초과 시 상용 라이선스 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "생태계 깊이와 파인튜닝 유연성이 최대 강점. LoRA·ControlNet 등 주변 도구가 가장 많아 커스터마이징이 필요하면 여기가 유리하다.\n",
+   "strengths": [
+    "ecosystem",
+    "finetuning",
+    "controlnet"
+   ],
+   "weaknesses": [
+    "revenue-gated-license"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/stabilityai",
+    "github": null,
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-image-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "z-image-turbo",
+   "name": "Z-Image Turbo",
+   "category": "image-gen",
+   "task": "text-to-image",
+   "vendor": null,
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "image"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "라이선스 확인 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "추론 스텝이 매우 적은데도 FLUX.2 dev, HunyuanImage 3.0, Imagen 4 급 품질을 낸다. 지연이 중요한 조합 파이프라인에 유리하다.\n",
+   "strengths": [
+    "few-step",
+    "fast",
+    "quality"
+   ],
+   "weaknesses": [
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": null,
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-image-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen-image",
+   "name": "Qwen-Image",
+   "category": "image-gen",
+   "task": "text-to-image",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "image"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "상업 사용이 자유로운 이미지 생성 모델. 텍스트 렌더링 품질이 좋은 편으로 알려져 있다.\n",
+   "strengths": [
+    "permissive-license",
+    "text-rendering"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-image-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "kimi-k3",
+   "name": "Kimi K3",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "Moonshot AI",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Modified MIT",
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "라이선스 원문 확인 필요",
+   "params": "2.8T total / 104B active (MoE)",
+   "context": "1M",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "에이전트·터미널 작업에 강하다. 2026년 7월 공개 시점 기준 오픈 웨이트 최상위권.\n",
+   "strengths": [
+    "agentic",
+    "long-context",
+    "coding"
+   ],
+   "weaknesses": [
+    "very-large",
+    "self-host-hard"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/moonshotai",
+    "github": null,
+    "paper": null
+   },
+   "released": "2026-07-27",
+   "benchmarks": [
+    {
+     "name": "Terminal-Bench 2.1",
+     "value": 88.3
+    }
+   ],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "deepseek-v4-1-flash",
+   "name": "DeepSeek-V4.1-Flash",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "DeepSeek",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "MIT",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "552B total / 8B active (prefill), 16B active (decode)",
+   "context": "1M",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "MoE 구조로 활성 파라미터가 매우 작아 추론 비용이 낮다. MIT 라이선스로 상업 사용이 자유롭다.\n",
+   "strengths": [
+    "permissive-license",
+    "cost-efficient",
+    "long-context",
+    "agentic"
+   ],
+   "weaknesses": [
+    "large-total-params"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/deepseek-ai",
+    "github": "https://github.com/deepseek-ai",
+    "paper": null
+   },
+   "released": "2026-09-10",
+   "benchmarks": [
+    {
+     "name": "Terminal-Bench 2.1",
+     "value": 90.6,
+     "note": "벤더 자체 보고치"
+    },
+    {
+     "name": "DeepSWE v1.1",
+     "value": 74.2,
+     "note": "벤더 자체 보고치"
+    }
+   ],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "glm-5-3",
+   "name": "GLM-5.3",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "Zhipu AI",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "GLM License",
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "5.2 대비 라이선스가 변경됨. 원문 확인 필요",
+   "params": "753B",
+   "context": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "프런티어급 오픈 웨이트 모델. 종합 성능 상위권.\n",
+   "strengths": [
+    "frontier-class"
+   ],
+   "weaknesses": [
+    "license-restrictive",
+    "very-large"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/zai-org",
+    "github": null,
+    "paper": null
+   },
+   "released": "2026-08-28",
+   "benchmarks": [
+    {
+     "name": "Open-weight ranking (BenchLM)",
+     "value": 67.1
+    }
+   ],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms",
+    "https://benchlm.ai/best/open-source"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "glm-5-3-flash",
+   "name": "GLM-5.3-Flash",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "Zhipu AI",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "MIT",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": "상위 모델과 달리 순수 MIT",
+   "params": "320B total / 18B active (MoE)",
+   "context": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "GLM-5.3 계열 중 라이선스가 가장 자유롭다. 활성 파라미터 18B로 추론 부담이 낮다.\n",
+   "strengths": [
+    "permissive-license",
+    "cost-efficient"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/zai-org",
+    "github": null,
+    "paper": null
+   },
+   "released": "2026-08-26",
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-6-27b",
+   "name": "Qwen3.6-27B",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": "Qwen 계열은 대체로 Apache-2.0. 모델별 확인 권장",
+   "params": "27B (dense)",
+   "context": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "단일 GPU에서 돌아가는 dense 27B인데 코딩 벤치마크가 프런티어급에 근접한다. 자체 호스팅 대비 성능비가 가장 좋은 구간.\n",
+   "strengths": [
+    "single-gpu",
+    "coding",
+    "permissive-license"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [
+    {
+     "name": "SWE-bench Verified",
+     "value": "77.2%"
+    }
+   ],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-8-max",
+   "name": "Qwen3.8 Max",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "context": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "2026년 9월 오픈 웨이트 종합 순위 1위.\n",
+   "strengths": [
+    "top-ranked",
+    "permissive-license"
+   ],
+   "weaknesses": [
+    "large"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [
+    {
+     "name": "Open-weight ranking (BenchLM)",
+     "value": 73.3
+    }
+   ],
+   "sources": [
+    "https://benchlm.ai/best/open-source"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-8-27b",
+   "name": "Qwen3.8-27B",
+   "category": "llm",
+   "task": "text-generation",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "27B (dense)",
+   "context": null,
+   "vram_min_gb": 24,
+   "runs_on": [
+    "gpu",
+    "apple-silicon"
+   ],
+   "specialization": "24GB 단일 GPU 또는 32GB 맥에서 실행 가능. 로컬 실행을 전제할 때 가장 무난한 선택.\n",
+   "strengths": [
+    "single-gpu",
+    "apple-silicon",
+    "permissive-license"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "gemma-4",
+   "name": "Gemma 4",
+   "category": "slm",
+   "task": "text-generation",
+   "vendor": "Google",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Gemma Terms of Use",
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "Google Gemma 사용 조건 적용. 금지 용도 조항 확인 필요",
+   "params": null,
+   "context": null,
+   "vram_min_gb": 16,
+   "runs_on": [
+    "gpu",
+    "cpu",
+    "apple-silicon"
+   ],
+   "specialization": "16GB 미만 환경에서 쓸 수 있는 소형 모델 중 성능이 가장 나은 축. 노트북·저사양 GPU에서 로컬 실행을 전제할 때의 기본 선택지.\n",
+   "strengths": [
+    "low-vram",
+    "local-first"
+   ],
+   "weaknesses": [
+    "license-conditional",
+    "smaller-capability"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/google",
+    "github": null,
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://www.thundercompute.com/blog/best-open-source-llms"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "kokoro",
+   "name": "Kokoro",
+   "category": "tts",
+   "task": "text-to-speech",
+   "vendor": "개인 개발자",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "speech"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "82M",
+   "vram_min_gb": 0,
+   "runs_on": [
+    "cpu",
+    "gpu",
+    "edge"
+   ],
+   "specialization": "82M 파라미터로 매우 가볍다. CPU 에서도 실용적인 속도가 나와 로컬 조합 파이프라인의 마지막 단계로 넣기 가장 쉽다. 다만 음성 샘플로 목소리를 복제하는 기능은 없다.\n",
+   "strengths": [
+    "tiny",
+    "cpu-friendly",
+    "permissive-license"
+   ],
+   "weaknesses": [
+    "no-voice-cloning"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/hexgrad/Kokoro-82M",
+    "github": null,
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "f5-tts",
+   "name": "F5-TTS",
+   "category": "tts",
+   "task": "text-to-speech",
+   "vendor": "SWivid",
+   "inputs": [
+    "text",
+    "speech"
+   ],
+   "outputs": [
+    "speech"
+   ],
+   "license": "MIT",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": "코드 MIT. 학습 데이터 출처에 따른 제약은 별도 확인 권장",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "flow matching 기반. 음성 복제 품질이 특히 좋아 참조 음성을 주면 해당 목소리로 합성한다. 품질 우선이면 여기부터.\n",
+   "strengths": [
+    "voice-cloning",
+    "quality"
+   ],
+   "weaknesses": [
+    "gpu-required"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/SWivid/F5-TTS",
+    "paper": "https://arxiv.org/abs/2410.06885"
+   },
+   "released": "2024-10",
+   "benchmarks": [],
+   "sources": [
+    "https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "xtts-v2",
+   "name": "XTTS-v2",
+   "category": "tts",
+   "task": "text-to-speech",
+   "vendor": "Coqui",
+   "inputs": [
+    "text",
+    "speech"
+   ],
+   "outputs": [
+    "speech"
+   ],
+   "license": "Coqui Public Model License",
+   "openness": "open-weight",
+   "commercial_use": "no",
+   "license_note": "비상업 용도만 허용. HuggingFace 최다 다운로드 TTS 모델이지만 상업 제품에 넣으면 나중에 전부 걷어내야 한다.\n",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "6초 샘플만으로 다른 언어로 목소리를 복제한다. 기능은 뛰어나지만 라이선스 때문에 상업 사용은 불가하다.\n",
+   "strengths": [
+    "cross-lingual-cloning",
+    "few-shot"
+   ],
+   "weaknesses": [
+    "non-commercial-license"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/coqui/XTTS-v2",
+    "github": null,
+    "paper": null
+   },
+   "released": 2023,
+   "benchmarks": [],
+   "sources": [
+    "https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-tts",
+   "name": "Qwen3-TTS",
+   "category": "tts",
+   "task": "text-to-speech",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "speech"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "상업 배포가 안전한 선택지 중 하나. Qwen 생태계의 다른 모델과 조합하기 좋다.\n",
+   "strengths": [
+    "commercial-safe",
+    "ecosystem"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "chatterbox",
+   "name": "Chatterbox",
+   "category": "tts",
+   "task": "text-to-speech",
+   "vendor": "Resemble AI",
+   "inputs": [
+    "text",
+    "speech"
+   ],
+   "outputs": [
+    "speech"
+   ],
+   "license": "MIT",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "상업 배포가 안전하면서 음성 복제를 지원한다. XTTS-v2 의 라이선스 대안으로 자주 거론된다.\n",
+   "strengths": [
+    "commercial-safe",
+    "voice-cloning"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/resemble-ai/chatterbox",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "wan-2-2",
+   "name": "Wan 2.2",
+   "category": "video-gen",
+   "task": "text-to-video",
+   "vendor": "Alibaba",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "video"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "5B (GGUF 변형)",
+   "vram_min_gb": 8,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "Apache-2.0 로 상업 사용이 자유롭고, 5B GGUF 에 메모리 오프로딩을 쓰면 VRAM 8GB 에서도 돈다. 로컬 실행 전제라면 가장 현실적인 선택. 동작 사실감과 프롬프트 준수도는 Sora·Veo 급에 근접한다.\n",
+   "strengths": [
+    "permissive-license",
+    "low-vram",
+    "quality"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Wan-AI",
+    "github": "https://github.com/Wan-Video",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.hyperstack.cloud/blog/case-study/best-open-source-video-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "ltx-2-3",
+   "name": "LTX-2.3",
+   "category": "video-gen",
+   "task": "text-to-video",
+   "vendor": "Lightricks",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "video",
+    "audio"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "라이선스 확인 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "오픈 모델 중 유일하게 네이티브 오디오를 지원한다. 영상과 동기화된 소리를 한 번의 디퓨전 패스에서 함께 생성하며 4K·50fps 출력이 가능하다. 후처리로 소리를 붙일 필요가 없어 조합 파이프라인이 짧아진다.\n",
+   "strengths": [
+    "native-audio",
+    "4k",
+    "high-fps"
+   ],
+   "weaknesses": [
+    "license-unclear",
+    "vram-heavy"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/Lightricks",
+    "github": "https://github.com/Lightricks/LTX-Video",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://ltx.io/blog/best-open-source-video-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "hunyuanvideo-1-5",
+   "name": "HunyuanVideo 1.5",
+   "category": "video-gen",
+   "task": "text-to-video",
+   "vendor": "Tencent",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "video"
+   ],
+   "license": "Tencent Hunyuan Community License",
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "월간 활성 사용자 기준 제한 조항 확인 필요",
+   "params": null,
+   "vram_min_gb": 14,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "FP8 과 CPU 오프로딩을 쓰면 RTX 4090 단일 GPU, 약 14GB VRAM 에서 실행된다. 소비자용 GPU 한 장으로 돌리는 것이 목표라면 후보.\n",
+   "strengths": [
+    "single-consumer-gpu",
+    "quality"
+   ],
+   "weaknesses": [
+    "license-conditional"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/tencent",
+    "github": "https://github.com/Tencent-Hunyuan",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://www.hyperstack.cloud/blog/case-study/best-open-source-video-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "cogvideox",
+   "name": "CogVideoX",
+   "category": "video-gen",
+   "task": "text-to-video",
+   "vendor": "Zhipu AI",
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "outputs": [
+    "video"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": "변형별 확인 권장",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "비교적 초기부터 공개되어 주변 도구와 예제가 많다. 파인튜닝 자료가 필요할 때 유리.\n",
+   "strengths": [
+    "ecosystem",
+    "permissive-license"
+   ],
+   "weaknesses": [
+    "older-quality"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/zai-org",
+    "github": "https://github.com/zai-org/CogVideo",
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://www.hyperstack.cloud/blog/case-study/best-open-source-video-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "mochi-1",
+   "name": "Mochi 1",
+   "category": "video-gen",
+   "task": "text-to-video",
+   "vendor": "Genmo",
+   "inputs": [
+    "text"
+   ],
+   "outputs": [
+    "video"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "Apache-2.0 영상 생성 모델. 동작 표현이 강점으로 알려져 있다.\n",
+   "strengths": [
+    "permissive-license",
+    "motion"
+   ],
+   "weaknesses": [
+    "vram-heavy"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/genmo",
+    "github": "https://github.com/genmoai/mochi",
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://www.hyperstack.cloud/blog/case-study/best-open-source-video-generation-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "rf-detr",
+   "name": "RF-DETR",
+   "category": "vision",
+   "task": "object-detection",
+   "vendor": "Roboflow",
+   "inputs": [
+    "image"
+   ],
+   "outputs": [
+    "boxes",
+    "mask"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "COCO 와 실환경 벤치마크(RF100-VL) 양쪽에서 1위. 대부분의 비전 프로젝트에서 정확도 기준 첫 선택지로 권장된다.\n",
+   "strengths": [
+    "accuracy",
+    "real-world-robust",
+    "detection-and-segmentation"
+   ],
+   "weaknesses": [
+    "slower-than-yolo"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/roboflow/rf-detr",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [
+    {
+     "name": "COCO",
+     "value": "SOTA (2026 기준)"
+    },
+    {
+     "name": "RF100-VL",
+     "value": "SOTA (2026 기준)"
+    }
+   ],
+   "sources": [
+    "https://blog.roboflow.com/best-object-detection-models/"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "yolo26",
+   "name": "YOLO26",
+   "category": "vision",
+   "task": "object-detection",
+   "vendor": "Ultralytics",
+   "inputs": [
+    "image",
+    "video"
+   ],
+   "outputs": [
+    "boxes",
+    "mask"
+   ],
+   "license": "AGPL-3.0",
+   "openness": "open-source",
+   "commercial_use": "conditional",
+   "license_note": "AGPL-3.0. 상업적 폐쇄 배포에는 별도 상용 라이선스 필요",
+   "params": "Nano ~ Extra Large (5종)",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu",
+    "cpu",
+    "edge"
+   ],
+   "specialization": "엣지·실시간에 최적화. NMS 없는 end-to-end 예측으로 후처리가 단순하고, CPU 추론이 YOLO11-N 대비 최대 43% 빠르다. 검출·분할·분류·포즈·회전박스를 한 모델로 처리.\n",
+   "strengths": [
+    "realtime",
+    "edge",
+    "cpu-fast",
+    "multi-task"
+   ],
+   "weaknesses": [
+    "agpl-license"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/ultralytics/ultralytics",
+    "paper": "https://arxiv.org/abs/2606.03748"
+   },
+   "released": "2026-01",
+   "benchmarks": [
+    {
+     "name": "COCO mAP (Nano)",
+     "value": 40.9,
+     "note": "T4 에서 1.7ms"
+    },
+    {
+     "name": "COCO mAP (Extra Large)",
+     "value": 57.5
+    }
+   ],
+   "sources": [
+    "https://blog.roboflow.com/best-object-detection-models/"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "sam-3",
+   "name": "SAM 3",
+   "category": "vision",
+   "task": "segmentation",
+   "vendor": "Meta",
+   "inputs": [
+    "image",
+    "video",
+    "text"
+   ],
+   "outputs": [
+    "mask"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "Meta 모델 라이선스 확인 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "프롬프트 기반 분할과 open-vocabulary 분할을 함께 지원한다. 데이터셋 라벨링을 빠르게 만들 때 특히 유용하다.\n",
+   "strengths": [
+    "promptable",
+    "open-vocabulary",
+    "dataset-creation"
+   ],
+   "weaknesses": [
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/facebookresearch",
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://blog.roboflow.com/best-computer-vision-models/"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "sam-2",
+   "name": "SAM 2",
+   "category": "vision",
+   "task": "segmentation",
+   "vendor": "Meta",
+   "inputs": [
+    "image",
+    "video"
+   ],
+   "outputs": [
+    "mask"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "영상에서 프레임 간 메모리를 유지해 클릭·박스·마스크로 선택한 객체를 끝까지 추적한다. 영상 분할이 필요하면 여기부터 본다.\n",
+   "strengths": [
+    "video-tracking",
+    "promptable"
+   ],
+   "weaknesses": [
+    "no-open-vocabulary"
+   ],
+   "links": {
+    "huggingface": null,
+    "github": "https://github.com/facebookresearch/sam2",
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://blog.roboflow.com/best-open-source-computer-vision-models/"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "glm-ocr",
+   "name": "GLM-OCR",
+   "category": "vision",
+   "task": "ocr",
+   "vendor": "Zhipu AI",
+   "inputs": [
+    "image"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "라이선스 확인 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "문서 이미지에서 텍스트를 추출한다. 2026년 기준 OCR 용도 선두권.\n",
+   "strengths": [
+    "ocr-accuracy"
+   ],
+   "weaknesses": [
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/zai-org",
+    "github": null,
+    "paper": null
+   },
+   "released": 2026,
+   "benchmarks": [],
+   "sources": [
+    "https://blog.roboflow.com/best-computer-vision-models/"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "florence-2",
+   "name": "Florence-2",
+   "category": "vision",
+   "task": "ocr",
+   "vendor": "Microsoft",
+   "inputs": [
+    "image",
+    "text"
+   ],
+   "outputs": [
+    "text",
+    "boxes"
+   ],
+   "license": "MIT",
+   "openness": "open-source",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu",
+    "cpu"
+   ],
+   "specialization": "OCR 과 비전-언어 작업을 한 모델로 처리한다. 캡셔닝·검출·OCR 을 프롬프트로 전환하며 쓸 수 있어 조합 파이프라인에 넣기 편하다.\n",
+   "strengths": [
+    "multi-task",
+    "permissive-license",
+    "small"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/microsoft/Florence-2-large",
+    "github": null,
+    "paper": null
+   },
+   "released": 2024,
+   "benchmarks": [],
+   "sources": [
+    "https://blog.roboflow.com/best-computer-vision-models/"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen3-vl",
+   "name": "Qwen3-VL",
+   "category": "vlm",
+   "task": "image-understanding",
+   "vendor": "Alibaba",
+   "inputs": [
+    "image",
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": "모델 크기별 라이선스 확인 권장",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "2026년 오픈소스 VLM 중 성능·지연 양쪽에서 선두권. 이미지 설명·문서 이해· 시각 에이전트에 두루 쓰인다. 조합 파이프라인의 표준 출발점.\n",
+   "strengths": [
+    "sota",
+    "low-latency",
+    "permissive-license"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "glm-4-5v",
+   "name": "GLM-4.5V",
+   "category": "vlm",
+   "task": "image-understanding",
+   "vendor": "Zhipu AI",
+   "inputs": [
+    "image",
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "라이선스 확인 필요",
+   "params": null,
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "3D 추론이 강점. 공개 벤치마크 42종에서 동급 오픈소스 모델 중 최상위를 기록했다.\n",
+   "strengths": [
+    "3d-reasoning",
+    "benchmark-leading"
+   ],
+   "weaknesses": [
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/zai-org",
+    "github": null,
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [
+    {
+     "name": "공개 벤치마크 42종",
+     "value": "동급 오픈소스 중 SOTA"
+    }
+   ],
+   "sources": [
+    "https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "internvl3-5",
+   "name": "InternVL3.5",
+   "category": "vlm",
+   "task": "image-understanding",
+   "vendor": "Shanghai AI Lab",
+   "inputs": [
+    "image",
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": null,
+   "openness": "open-weight",
+   "commercial_use": "conditional",
+   "license_note": "라이선스 확인 필요",
+   "params": "241B (flagship)",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "시각 해상도 라우터로 추론 효율을 높였다. 플래그십 241B 는 오픈소스 VLM 중 SOTA.\n",
+   "strengths": [
+    "sota",
+    "efficient-inference"
+   ],
+   "weaknesses": [
+    "very-large",
+    "license-unclear"
+   ],
+   "links": {
+    "huggingface": "https://huggingface.co/OpenGVLab",
+    "github": "https://github.com/OpenGVLab/InternVL",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models"
+   ],
+   "verified": "2026-09-23"
+  },
+  {
+   "id": "qwen2-5-vl-32b-instruct",
+   "name": "Qwen2.5-VL-32B-Instruct",
+   "category": "vlm",
+   "task": "image-understanding",
+   "vendor": "Alibaba",
+   "inputs": [
+    "image",
+    "text"
+   ],
+   "outputs": [
+    "text"
+   ],
+   "license": "Apache-2.0",
+   "openness": "open-weight",
+   "commercial_use": "yes",
+   "license_note": null,
+   "params": "32B",
+   "vram_min_gb": null,
+   "runs_on": [
+    "gpu"
+   ],
+   "specialization": "시각 에이전트 용도에 특히 잘 맞는다. UI 조작·문서 탐색처럼 이미지를 보고 행동을 결정하는 작업에 쓰인다.\n",
+   "strengths": [
+    "visual-agent",
+    "permissive-license"
+   ],
+   "weaknesses": [],
+   "links": {
+    "huggingface": "https://huggingface.co/Qwen",
+    "github": "https://github.com/QwenLM",
+    "paper": null
+   },
+   "released": 2025,
+   "benchmarks": [],
+   "sources": [
+    "https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models"
+   ],
+   "verified": "2026-09-23"
+  }
+ ],
+ "edges": [
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "whisper-large-v3",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-asr",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "canary-qwen-2-5b",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "parakeet-tdt",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "moonshine",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "qwen-image",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "wan-2-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "ltx-2-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "cogvideox",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "rf-detr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "yolo26",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "sam-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "sam-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "glm-ocr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "florence-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "qwen3-vl",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "glm-4-5v",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "internvl3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "flux-2",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "flux-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "qwen-image",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "wan-2-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "ltx-2-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "cogvideox",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "rf-detr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "yolo26",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "sam-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "sam-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "glm-ocr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "florence-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "qwen3-vl",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "glm-4-5v",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "internvl3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "stable-diffusion-3-5",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "flux-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "qwen-image",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "wan-2-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "ltx-2-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "cogvideox",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "rf-detr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "yolo26",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "sam-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "sam-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "glm-ocr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "florence-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "qwen3-vl",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "glm-4-5v",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "internvl3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "z-image-turbo",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "flux-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "wan-2-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "ltx-2-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "cogvideox",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "rf-detr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "yolo26",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "sam-3",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "sam-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "glm-ocr",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "florence-2",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "qwen3-vl",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "glm-4-5v",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "internvl3-5",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "qwen-image",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "image"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kimi-k3",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "deepseek-v4-1-flash",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-5-3-flash",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-6-27b",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-max",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-8-27b",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "gemma-4",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "whisper-large-v3",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "qwen3-asr",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "canary-qwen-2-5b",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "parakeet-tdt",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "moonshine",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "f5-tts",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "xtts-v2",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "kokoro",
+   "to": "chatterbox",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "whisper-large-v3",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "qwen3-asr",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "canary-qwen-2-5b",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "parakeet-tdt",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "moonshine",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "xtts-v2",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "f5-tts",
+   "to": "chatterbox",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "whisper-large-v3",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "qwen3-asr",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "canary-qwen-2-5b",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "parakeet-tdt",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "moonshine",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "f5-tts",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "xtts-v2",
+   "to": "chatterbox",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "whisper-large-v3",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "qwen3-asr",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "canary-qwen-2-5b",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "parakeet-tdt",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "moonshine",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "f5-tts",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "xtts-v2",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "qwen3-tts",
+   "to": "chatterbox",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "whisper-large-v3",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "qwen3-asr",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "canary-qwen-2-5b",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "parakeet-tdt",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "moonshine",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "f5-tts",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "chatterbox",
+   "to": "xtts-v2",
+   "types": [
+    "speech"
+   ]
+  },
+  {
+   "from": "wan-2-2",
+   "to": "yolo26",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "wan-2-2",
+   "to": "sam-3",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "wan-2-2",
+   "to": "sam-2",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "ltx-2-3",
+   "to": "yolo26",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "ltx-2-3",
+   "to": "sam-3",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "ltx-2-3",
+   "to": "sam-2",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "hunyuanvideo-1-5",
+   "to": "yolo26",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "hunyuanvideo-1-5",
+   "to": "sam-3",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "hunyuanvideo-1-5",
+   "to": "sam-2",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "cogvideox",
+   "to": "yolo26",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "cogvideox",
+   "to": "sam-3",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "cogvideox",
+   "to": "sam-2",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "mochi-1",
+   "to": "yolo26",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "mochi-1",
+   "to": "sam-3",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "mochi-1",
+   "to": "sam-2",
+   "types": [
+    "video"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-ocr",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "florence-2",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen3-vl",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "glm-4-5v",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "internvl3-5",
+   "to": "qwen2-5-vl-32b-instruct",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-embedding-8b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "bge-m3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "bge-reranker-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-vl-embedding",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "flux-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "stable-diffusion-3-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "z-image-turbo",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen-image",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "kimi-k3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "deepseek-v4-1-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "glm-5-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "glm-5-3-flash",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-6-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-8-max",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-8-27b",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "gemma-4",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "kokoro",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "f5-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "xtts-v2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-tts",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "chatterbox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "wan-2-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "ltx-2-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "hunyuanvideo-1-5",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "cogvideox",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "mochi-1",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "sam-3",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "florence-2",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "qwen3-vl",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "glm-4-5v",
+   "types": [
+    "text"
+   ]
+  },
+  {
+   "from": "qwen2-5-vl-32b-instruct",
+   "to": "internvl3-5",
+   "types": [
+    "text"
+   ]
+  }
+ ]
+}

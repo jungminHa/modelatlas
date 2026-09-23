@@ -1,0 +1,128 @@
+# 음성 합성 (text → speech)
+# 이 카테고리는 라이선스 사고가 가장 잦다. commercial_use 를 반드시 확인할 것.
+
+- id: kokoro
+  name: Kokoro
+  category: tts
+  task: text-to-speech
+  vendor: 개인 개발자
+  inputs: [text]
+  outputs: [speech]
+  license: Apache-2.0
+  openness: open-source
+  commercial_use: yes
+  license_note: null
+  params: 82M
+  vram_min_gb: 0
+  runs_on: [cpu, gpu, edge]
+  specialization: >
+    82M 파라미터로 매우 가볍다. CPU 에서도 실용적인 속도가 나와
+    로컬 조합 파이프라인의 마지막 단계로 넣기 가장 쉽다.
+    다만 음성 샘플로 목소리를 복제하는 기능은 없다.
+  strengths: [tiny, cpu-friendly, permissive-license]
+  weaknesses: [no-voice-cloning]
+  links: {huggingface: https://huggingface.co/hexgrad/Kokoro-82M, github: null, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa]
+  verified: 2026-09-23
+
+- id: f5-tts
+  name: F5-TTS
+  category: tts
+  task: text-to-speech
+  vendor: SWivid
+  inputs: [text, speech]
+  outputs: [speech]
+  license: MIT
+  openness: open-source
+  commercial_use: yes
+  license_note: 코드 MIT. 학습 데이터 출처에 따른 제약은 별도 확인 권장
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    flow matching 기반. 음성 복제 품질이 특히 좋아 참조 음성을 주면
+    해당 목소리로 합성한다. 품질 우선이면 여기부터.
+  strengths: [voice-cloning, quality]
+  weaknesses: [gpu-required]
+  links: {huggingface: null, github: https://github.com/SWivid/F5-TTS, paper: https://arxiv.org/abs/2410.06885}
+  released: 2024-10
+  benchmarks: []
+  sources: [https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa]
+  verified: 2026-09-23
+
+- id: xtts-v2
+  name: XTTS-v2
+  category: tts
+  task: text-to-speech
+  vendor: Coqui
+  inputs: [text, speech]
+  outputs: [speech]
+  license: Coqui Public Model License
+  openness: open-weight
+  commercial_use: no
+  license_note: >
+    비상업 용도만 허용. HuggingFace 최다 다운로드 TTS 모델이지만
+    상업 제품에 넣으면 나중에 전부 걷어내야 한다.
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    6초 샘플만으로 다른 언어로 목소리를 복제한다. 기능은 뛰어나지만
+    라이선스 때문에 상업 사용은 불가하다.
+  strengths: [cross-lingual-cloning, few-shot]
+  weaknesses: [non-commercial-license]
+  links: {huggingface: https://huggingface.co/coqui/XTTS-v2, github: null, paper: null}
+  released: 2023
+  benchmarks: []
+  sources: [https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa]
+  verified: 2026-09-23
+
+- id: qwen3-tts
+  name: Qwen3-TTS
+  category: tts
+  task: text-to-speech
+  vendor: Alibaba
+  inputs: [text]
+  outputs: [speech]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    상업 배포가 안전한 선택지 중 하나. Qwen 생태계의 다른 모델과 조합하기 좋다.
+  strengths: [commercial-safe, ecosystem]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
+  released: 2026
+  benchmarks: []
+  sources: [https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa]
+  verified: 2026-09-23
+
+- id: chatterbox
+  name: Chatterbox
+  category: tts
+  task: text-to-speech
+  vendor: Resemble AI
+  inputs: [text, speech]
+  outputs: [speech]
+  license: MIT
+  openness: open-source
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    상업 배포가 안전하면서 음성 복제를 지원한다. XTTS-v2 의 라이선스 대안으로 자주 거론된다.
+  strengths: [commercial-safe, voice-cloning]
+  weaknesses: []
+  links: {huggingface: null, github: https://github.com/resemble-ai/chatterbox, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.centron.de/en/tutorials/best-open-source-tts-models-compared-kokoro-f5-tts-sparktts-sesa]
+  verified: 2026-09-23

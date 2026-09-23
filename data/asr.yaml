@@ -1,0 +1,125 @@
+# 음성 인식 (speech → text)
+
+- id: whisper-large-v3
+  name: Whisper large-v3
+  category: asr
+  task: speech-to-text
+  vendor: OpenAI
+  inputs: [speech]
+  outputs: [text]
+  license: MIT
+  openness: open-source
+  commercial_use: yes
+  license_note: null
+  params: 1.55B
+  vram_min_gb: null
+  runs_on: [gpu, cpu]
+  specialization: >
+    범용 전사에서 여전히 가장 무난한 올라운더. 언어 커버리지가 넓어
+    입력 언어를 특정할 수 없을 때 기본값으로 쓴다.
+  strengths: [multilingual, general-purpose, permissive-license]
+  weaknesses: [slower-than-parakeet, not-realtime]
+  links: {huggingface: https://huggingface.co/openai/whisper-large-v3, github: https://github.com/openai/whisper, paper: null}
+  released: 2023
+  benchmarks: []
+  sources: [https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications]
+  verified: 2026-09-23
+
+- id: qwen3-asr
+  name: Qwen3-ASR
+  category: asr
+  task: speech-to-text
+  vendor: Alibaba
+  inputs: [speech]
+  outputs: [text]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    52개 언어·방언 지원. 언어 식별, 음성 인식, 타임스탬프 예측을 한 모델로 처리한다.
+    자막 생성처럼 타임스탬프가 필요한 파이프라인에 적합.
+  strengths: [multilingual, timestamps, language-id]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
+  released: 2026-01
+  benchmarks: []
+  sources: [https://www.gladia.io/blog/best-open-source-speech-to-text-models]
+  verified: 2026-09-23
+
+- id: canary-qwen-2-5b
+  name: NVIDIA Canary-Qwen 2.5B
+  category: asr
+  task: speech-to-text
+  vendor: NVIDIA
+  inputs: [speech]
+  outputs: [text]
+  license: null
+  openness: open-weight
+  commercial_use: conditional
+  license_note: NVIDIA 모델 라이선스 확인 필요
+  params: 2.5B
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    영어 정확도 기준 현재 최상위. 영어 전용 워크로드라면 Whisper 보다 낫다.
+  strengths: [english-accuracy]
+  weaknesses: [english-focused, license-unclear]
+  links: {huggingface: https://huggingface.co/nvidia, github: null, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications]
+  verified: 2026-09-23
+
+- id: parakeet-tdt
+  name: NVIDIA Parakeet TDT
+  category: asr
+  task: speech-to-text
+  vendor: NVIDIA
+  inputs: [speech]
+  outputs: [text]
+  license: null
+  openness: open-weight
+  commercial_use: conditional
+  license_note: NVIDIA 모델 라이선스 확인 필요
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    자체 호스팅 가능한 것 중 배치 처리량이 가장 빠르다.
+    대량 아카이브를 한 번에 전사할 때 선택.
+  strengths: [throughput, batch]
+  weaknesses: [license-unclear]
+  links: {huggingface: https://huggingface.co/nvidia, github: null, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications]
+  verified: 2026-09-23
+
+- id: moonshine
+  name: Moonshine
+  category: asr
+  task: speech-to-text
+  vendor: Useful Sensors
+  inputs: [speech]
+  outputs: [text]
+  license: MIT
+  openness: open-source
+  commercial_use: yes
+  license_note: null
+  params: 최소 모델 27MB
+  vram_min_gb: 0
+  runs_on: [cpu, edge]
+  specialization: >
+    저사양 하드웨어의 실시간 인식을 목표로 만들어졌다. 최소 모델이 27MB 라
+    Whisper 나 NVIDIA 모델이 아예 못 도는 환경에 들어간다.
+  strengths: [edge, realtime, tiny, permissive-license]
+  weaknesses: [lower-accuracy-than-large-models]
+  links: {huggingface: null, github: https://github.com/usefulsensors/moonshine, paper: null}
+  released: 2024
+  benchmarks: []
+  sources: [https://www.assemblyai.com/blog/top-open-source-stt-options-for-voice-applications]
+  verified: 2026-09-23

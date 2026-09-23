@@ -1,0 +1,99 @@
+# 이미지 생성
+
+- id: flux-2
+  name: FLUX.2
+  category: image-gen
+  task: text-to-image
+  vendor: Black Forest Labs
+  inputs: [text, image]
+  outputs: [image]
+  license: null
+  openness: open-weight
+  commercial_use: conditional
+  license_note: dev / schnell 등 변형마다 라이선스가 다르다. 반드시 개별 확인
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    사실감과 출력 품질에서 오픈 모델 중 선두. 전문 작업물 품질이 필요할 때 선택.
+  strengths: [photorealism, quality]
+  weaknesses: [license-varies, vram-heavy]
+  links: {huggingface: https://huggingface.co/black-forest-labs, github: null, paper: null}
+  released: 2026
+  benchmarks: []
+  sources: [https://www.thundercompute.com/blog/best-open-source-image-generation-models]
+  verified: 2026-09-23
+
+- id: stable-diffusion-3-5
+  name: Stable Diffusion 3.5
+  category: image-gen
+  task: text-to-image
+  vendor: Stability AI
+  inputs: [text, image]
+  outputs: [image]
+  license: Stability Community License
+  openness: open-weight
+  commercial_use: conditional
+  license_note: 연 매출 기준 이하는 무료. 초과 시 상용 라이선스 필요
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    생태계 깊이와 파인튜닝 유연성이 최대 강점. LoRA·ControlNet 등
+    주변 도구가 가장 많아 커스터마이징이 필요하면 여기가 유리하다.
+  strengths: [ecosystem, finetuning, controlnet]
+  weaknesses: [revenue-gated-license]
+  links: {huggingface: https://huggingface.co/stabilityai, github: null, paper: null}
+  released: 2024
+  benchmarks: []
+  sources: [https://www.thundercompute.com/blog/best-open-source-image-generation-models]
+  verified: 2026-09-23
+
+- id: z-image-turbo
+  name: Z-Image Turbo
+  category: image-gen
+  task: text-to-image
+  vendor: null
+  inputs: [text]
+  outputs: [image]
+  license: null
+  openness: open-weight
+  commercial_use: conditional
+  license_note: 라이선스 확인 필요
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    추론 스텝이 매우 적은데도 FLUX.2 dev, HunyuanImage 3.0, Imagen 4 급 품질을 낸다.
+    지연이 중요한 조합 파이프라인에 유리하다.
+  strengths: [few-step, fast, quality]
+  weaknesses: [license-unclear]
+  links: {huggingface: null, github: null, paper: null}
+  released: 2026
+  benchmarks: []
+  sources: [https://www.thundercompute.com/blog/best-open-source-image-generation-models]
+  verified: 2026-09-23
+
+- id: qwen-image
+  name: Qwen-Image
+  category: image-gen
+  task: text-to-image
+  vendor: Alibaba
+  inputs: [text, image]
+  outputs: [image]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    상업 사용이 자유로운 이미지 생성 모델. 텍스트 렌더링 품질이 좋은 편으로 알려져 있다.
+  strengths: [permissive-license, text-rendering]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.thundercompute.com/blog/best-open-source-image-generation-models]
+  verified: 2026-09-23

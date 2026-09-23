@@ -1,0 +1,105 @@
+# 임베딩 · 리랭킹 — RAG 파이프라인의 기반
+
+- id: qwen3-embedding-8b
+  name: Qwen3-Embedding-8B
+  category: embedding
+  task: text-embedding
+  vendor: Alibaba
+  inputs: [text]
+  outputs: [embedding]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: 8B
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    100개 이상의 자연어·프로그래밍 언어를 지원하고 MTEB 선두권.
+    사용자 정의 지시문을 받아 도메인별로 동작을 조정할 수 있다.
+    0.6B · 4B 변형이 있어 자원에 맞춰 고를 수 있다.
+  strengths: [mteb-leading, multilingual, instruction-tunable]
+  weaknesses: [gpu-required]
+  links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: https://arxiv.org/abs/2506.05176}
+  released: 2025-06
+  benchmarks:
+    - name: MTEB
+      value: 선두
+      note: 2026-09 스냅샷 기준
+  sources: [https://www.bentoml.com/blog/a-guide-to-open-source-embedding-models]
+  verified: 2026-09-23
+
+- id: bge-m3
+  name: BGE-M3
+  category: embedding
+  task: text-embedding
+  vendor: BAAI
+  inputs: [text]
+  outputs: [embedding]
+  license: MIT
+  openness: open-source
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu, cpu]
+  specialization: >
+    100개 이상 언어를 다루는 다국어 자체 호스팅 표준. 큰 모델을 띄우기
+    어려운 환경에서 Qwen3 대신 쓰는 기본 선택지.
+  strengths: [multilingual, lightweight, permissive-license]
+  weaknesses: [below-qwen3-on-mteb]
+  links: {huggingface: https://huggingface.co/BAAI/bge-m3, github: https://github.com/FlagOpen/FlagEmbedding, paper: null}
+  released: 2024
+  benchmarks: []
+  sources: [https://www.bentoml.com/blog/a-guide-to-open-source-embedding-models]
+  verified: 2026-09-23
+
+- id: bge-reranker-v2
+  name: BGE-reranker-v2
+  category: embedding
+  task: reranking
+  vendor: BAAI
+  inputs: [text]
+  outputs: [score]
+  license: Apache-2.0
+  openness: open-source
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu, cpu]
+  specialization: >
+    임베딩 검색 결과를 재정렬한다. BGE-M3 와 묶으면 라이선스 비용 0 으로
+    2단계 검색 파이프라인이 완성된다.
+  strengths: [permissive-license, pairs-with-bge-m3]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/BAAI, github: https://github.com/FlagOpen/FlagEmbedding, paper: null}
+  released: 2024
+  benchmarks: []
+  sources: [https://builderai.tools/blog/best-open-source-embedding-models-2026]
+  verified: 2026-09-23
+
+- id: qwen3-vl-embedding
+  name: Qwen3-VL-Embedding
+  category: embedding
+  task: multimodal-embedding
+  vendor: Alibaba
+  inputs: [text, image]
+  outputs: [embedding]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    텍스트와 이미지를 같은 벡터 공간에 넣는다. 이미지로 문서를 찾거나
+    텍스트로 이미지를 찾는 검색에 쓴다. 리랭커가 짝으로 제공된다.
+  strengths: [multimodal-retrieval, permissive-license]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/Qwen, github: null, paper: https://arxiv.org/abs/2601.04720}
+  released: 2026-01
+  benchmarks: []
+  sources: [https://arxiv.org/pdf/2601.04720]
+  verified: 2026-09-23

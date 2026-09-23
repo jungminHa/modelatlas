@@ -1,0 +1,213 @@
+# 대형 언어 모델 (open-weight 중심)
+# 주의: 여기 대부분은 OSI 기준 오픈소스가 아니라 open-weight 다. SCHEMA.md 참조.
+
+- id: kimi-k3
+  name: Kimi K3
+  category: llm
+  task: text-generation
+  vendor: Moonshot AI
+  inputs: [text]
+  outputs: [text]
+  license: Modified MIT
+  openness: open-weight
+  commercial_use: conditional
+  license_note: 라이선스 원문 확인 필요
+  params: 2.8T total / 104B active (MoE)
+  context: 1M
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    에이전트·터미널 작업에 강하다. 2026년 7월 공개 시점 기준 오픈 웨이트 최상위권.
+  strengths: [agentic, long-context, coding]
+  weaknesses: [very-large, self-host-hard]
+  links:
+    huggingface: https://huggingface.co/moonshotai
+    github: null
+    paper: null
+  released: 2026-07-27
+  benchmarks:
+    - name: Terminal-Bench 2.1
+      value: 88.3
+  sources: [https://www.thundercompute.com/blog/best-open-source-llms]
+  verified: 2026-09-23
+
+- id: deepseek-v4-1-flash
+  name: DeepSeek-V4.1-Flash
+  category: llm
+  task: text-generation
+  vendor: DeepSeek
+  inputs: [text]
+  outputs: [text]
+  license: MIT
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: 552B total / 8B active (prefill), 16B active (decode)
+  context: 1M
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    MoE 구조로 활성 파라미터가 매우 작아 추론 비용이 낮다. MIT 라이선스로 상업 사용이 자유롭다.
+  strengths: [permissive-license, cost-efficient, long-context, agentic]
+  weaknesses: [large-total-params]
+  links:
+    huggingface: https://huggingface.co/deepseek-ai
+    github: https://github.com/deepseek-ai
+    paper: null
+  released: 2026-09-10
+  benchmarks:
+    - name: Terminal-Bench 2.1
+      value: 90.6
+      note: 벤더 자체 보고치
+    - name: DeepSWE v1.1
+      value: 74.2
+      note: 벤더 자체 보고치
+  sources: [https://www.thundercompute.com/blog/best-open-source-llms]
+  verified: 2026-09-23
+
+- id: glm-5-3
+  name: GLM-5.3
+  category: llm
+  task: text-generation
+  vendor: Zhipu AI
+  inputs: [text]
+  outputs: [text]
+  license: GLM License
+  openness: open-weight
+  commercial_use: conditional
+  license_note: 5.2 대비 라이선스가 변경됨. 원문 확인 필요
+  params: 753B
+  context: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    프런티어급 오픈 웨이트 모델. 종합 성능 상위권.
+  strengths: [frontier-class]
+  weaknesses: [license-restrictive, very-large]
+  links:
+    huggingface: https://huggingface.co/zai-org
+    github: null
+    paper: null
+  released: 2026-08-28
+  benchmarks:
+    - name: Open-weight ranking (BenchLM)
+      value: 67.1
+  sources: [https://www.thundercompute.com/blog/best-open-source-llms, https://benchlm.ai/best/open-source]
+  verified: 2026-09-23
+
+- id: glm-5-3-flash
+  name: GLM-5.3-Flash
+  category: llm
+  task: text-generation
+  vendor: Zhipu AI
+  inputs: [text]
+  outputs: [text]
+  license: MIT
+  openness: open-weight
+  commercial_use: yes
+  license_note: 상위 모델과 달리 순수 MIT
+  params: 320B total / 18B active (MoE)
+  context: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    GLM-5.3 계열 중 라이선스가 가장 자유롭다. 활성 파라미터 18B로 추론 부담이 낮다.
+  strengths: [permissive-license, cost-efficient]
+  weaknesses: []
+  links:
+    huggingface: https://huggingface.co/zai-org
+    github: null
+    paper: null
+  released: 2026-08-26
+  benchmarks: []
+  sources: [https://www.thundercompute.com/blog/best-open-source-llms]
+  verified: 2026-09-23
+
+- id: qwen3-6-27b
+  name: Qwen3.6-27B
+  category: llm
+  task: text-generation
+  vendor: Alibaba
+  inputs: [text]
+  outputs: [text]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: Qwen 계열은 대체로 Apache-2.0. 모델별 확인 권장
+  params: 27B (dense)
+  context: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    단일 GPU에서 돌아가는 dense 27B인데 코딩 벤치마크가 프런티어급에 근접한다.
+    자체 호스팅 대비 성능비가 가장 좋은 구간.
+  strengths: [single-gpu, coding, permissive-license]
+  weaknesses: []
+  links:
+    huggingface: https://huggingface.co/Qwen
+    github: https://github.com/QwenLM
+    paper: null
+  released: 2026
+  benchmarks:
+    - name: SWE-bench Verified
+      value: 77.2%
+  sources: [https://www.thundercompute.com/blog/best-open-source-llms]
+  verified: 2026-09-23
+
+- id: qwen3-8-max
+  name: Qwen3.8 Max
+  category: llm
+  task: text-generation
+  vendor: Alibaba
+  inputs: [text]
+  outputs: [text]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: null
+  context: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    2026년 9월 오픈 웨이트 종합 순위 1위.
+  strengths: [top-ranked, permissive-license]
+  weaknesses: [large]
+  links:
+    huggingface: https://huggingface.co/Qwen
+    github: https://github.com/QwenLM
+    paper: null
+  released: 2026
+  benchmarks:
+    - name: Open-weight ranking (BenchLM)
+      value: 73.3
+  sources: [https://benchlm.ai/best/open-source]
+  verified: 2026-09-23
+
+- id: qwen3-8-27b
+  name: Qwen3.8-27B
+  category: llm
+  task: text-generation
+  vendor: Alibaba
+  inputs: [text]
+  outputs: [text]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: 27B (dense)
+  context: null
+  vram_min_gb: 24
+  runs_on: [gpu, apple-silicon]
+  specialization: >
+    24GB 단일 GPU 또는 32GB 맥에서 실행 가능. 로컬 실행을 전제할 때 가장 무난한 선택.
+  strengths: [single-gpu, apple-silicon, permissive-license]
+  weaknesses: []
+  links:
+    huggingface: https://huggingface.co/Qwen
+    github: https://github.com/QwenLM
+    paper: null
+  released: 2026
+  benchmarks: []
+  sources: [https://www.thundercompute.com/blog/best-open-source-llms]
+  verified: 2026-09-23

@@ -1,0 +1,101 @@
+# 비전-언어 모델 — 이미지를 이해하고 텍스트로 답한다
+
+- id: qwen3-vl
+  name: Qwen3-VL
+  category: vlm
+  task: image-understanding
+  vendor: Alibaba
+  inputs: [image, text]
+  outputs: [text]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: 모델 크기별 라이선스 확인 권장
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    2026년 오픈소스 VLM 중 성능·지연 양쪽에서 선두권. 이미지 설명·문서 이해·
+    시각 에이전트에 두루 쓰인다. 조합 파이프라인의 표준 출발점.
+  strengths: [sota, low-latency, permissive-license]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models]
+  verified: 2026-09-23
+
+- id: glm-4-5v
+  name: GLM-4.5V
+  category: vlm
+  task: image-understanding
+  vendor: Zhipu AI
+  inputs: [image, text]
+  outputs: [text]
+  license: null
+  openness: open-weight
+  commercial_use: conditional
+  license_note: 라이선스 확인 필요
+  params: null
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    3D 추론이 강점. 공개 벤치마크 42종에서 동급 오픈소스 모델 중 최상위를 기록했다.
+  strengths: [3d-reasoning, benchmark-leading]
+  weaknesses: [license-unclear]
+  links: {huggingface: https://huggingface.co/zai-org, github: null, paper: null}
+  released: 2025
+  benchmarks:
+    - name: 공개 벤치마크 42종
+      value: 동급 오픈소스 중 SOTA
+  sources: [https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models]
+  verified: 2026-09-23
+
+- id: internvl3-5
+  name: InternVL3.5
+  category: vlm
+  task: image-understanding
+  vendor: Shanghai AI Lab
+  inputs: [image, text]
+  outputs: [text]
+  license: null
+  openness: open-weight
+  commercial_use: conditional
+  license_note: 라이선스 확인 필요
+  params: 241B (flagship)
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    시각 해상도 라우터로 추론 효율을 높였다. 플래그십 241B 는 오픈소스 VLM 중 SOTA.
+  strengths: [sota, efficient-inference]
+  weaknesses: [very-large, license-unclear]
+  links: {huggingface: https://huggingface.co/OpenGVLab, github: https://github.com/OpenGVLab/InternVL, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models]
+  verified: 2026-09-23
+
+- id: qwen2-5-vl-32b-instruct
+  name: Qwen2.5-VL-32B-Instruct
+  category: vlm
+  task: image-understanding
+  vendor: Alibaba
+  inputs: [image, text]
+  outputs: [text]
+  license: Apache-2.0
+  openness: open-weight
+  commercial_use: yes
+  license_note: null
+  params: 32B
+  vram_min_gb: null
+  runs_on: [gpu]
+  specialization: >
+    시각 에이전트 용도에 특히 잘 맞는다. UI 조작·문서 탐색처럼
+    이미지를 보고 행동을 결정하는 작업에 쓰인다.
+  strengths: [visual-agent, permissive-license]
+  weaknesses: []
+  links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
+  released: 2025
+  benchmarks: []
+  sources: [https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models]
+  verified: 2026-09-23
