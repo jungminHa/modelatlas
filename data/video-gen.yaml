@@ -1,4 +1,4 @@
-# 영상 생성
+# Video generation
 
 - id: wan-2-2
   name: Wan 2.2
@@ -11,13 +11,13 @@
   openness: open-source
   commercial_use: yes
   license_note: null
-  params: 5B (GGUF 변형)
+  params: 5B (GGUF variant)
   vram_min_gb: 8
   runs_on: [gpu]
   specialization: >
-    Apache-2.0 로 상업 사용이 자유롭고, 5B GGUF 에 메모리 오프로딩을 쓰면
-    VRAM 8GB 에서도 돈다. 로컬 실행 전제라면 가장 현실적인 선택.
-    동작 사실감과 프롬프트 준수도는 Sora·Veo 급에 근접한다.
+    Apache-2.0, so commercial use is unrestricted, and the 5B GGUF runs in 8GB of VRAM with
+    memory offloading. The most practical choice when local execution is required. Motion
+    realism and prompt adherence approach Sora and Veo.
   strengths: [permissive-license, low-vram, quality]
   weaknesses: []
   links: {huggingface: https://huggingface.co/Wan-AI, github: https://github.com/Wan-Video, paper: null}
@@ -36,14 +36,14 @@
   license: null
   openness: open-weight
   commercial_use: conditional
-  license_note: 라이선스 확인 필요
+  license_note: License needs verification
   params: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    오픈 모델 중 유일하게 네이티브 오디오를 지원한다. 영상과 동기화된 소리를
-    한 번의 디퓨전 패스에서 함께 생성하며 4K·50fps 출력이 가능하다.
-    후처리로 소리를 붙일 필요가 없어 조합 파이프라인이 짧아진다.
+    The only open model with native audio: it generates synchronized sound and video in a
+    single diffusion pass, at up to 4K and 50fps. No separate audio step means a shorter
+    composed pipeline.
   strengths: [native-audio, 4k, high-fps]
   weaknesses: [license-unclear, vram-heavy]
   links: {huggingface: https://huggingface.co/Lightricks, github: https://github.com/Lightricks/LTX-Video, paper: null}
@@ -62,13 +62,13 @@
   license: Tencent Hunyuan Community License
   openness: open-weight
   commercial_use: conditional
-  license_note: 월간 활성 사용자 기준 제한 조항 확인 필요
+  license_note: Check the monthly-active-user restriction clause
   params: null
   vram_min_gb: 14
   runs_on: [gpu]
   specialization: >
-    FP8 과 CPU 오프로딩을 쓰면 RTX 4090 단일 GPU, 약 14GB VRAM 에서 실행된다.
-    소비자용 GPU 한 장으로 돌리는 것이 목표라면 후보.
+    Runs on a single RTX 4090 at roughly 14GB of VRAM with FP8 and CPU offloading.
+    A candidate when one consumer GPU is the whole budget.
   strengths: [single-consumer-gpu, quality]
   weaknesses: [license-conditional]
   links: {huggingface: https://huggingface.co/tencent, github: https://github.com/Tencent-Hunyuan, paper: null}
@@ -87,12 +87,13 @@
   license: Apache-2.0
   openness: open-source
   commercial_use: yes
-  license_note: 변형별 확인 권장
+  license_note: Confirm per variant
   params: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    비교적 초기부터 공개되어 주변 도구와 예제가 많다. 파인튜닝 자료가 필요할 때 유리.
+    Released early enough to have accumulated tooling and examples — helpful when
+    fine-tuning references are needed.
   strengths: [ecosystem, permissive-license]
   weaknesses: [older-quality]
   links: {huggingface: https://huggingface.co/zai-org, github: https://github.com/zai-org/CogVideo, paper: null}
@@ -116,7 +117,7 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    Apache-2.0 영상 생성 모델. 동작 표현이 강점으로 알려져 있다.
+    An Apache-2.0 video model, reported to be strong on motion.
   strengths: [permissive-license, motion]
   weaknesses: [vram-heavy]
   links: {huggingface: https://huggingface.co/genmo, github: https://github.com/genmoai/mochi, paper: null}

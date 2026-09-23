@@ -1,5 +1,5 @@
-# 대형 언어 모델 (open-weight 중심)
-# 주의: 여기 대부분은 OSI 기준 오픈소스가 아니라 open-weight 다. SCHEMA.md 참조.
+# Large language models (mostly open-weight)
+# NOTE: most entries here are open-weight, not OSI open-source. See SCHEMA.md.
 
 - id: kimi-k3
   name: Kimi K3
@@ -11,13 +11,14 @@
   license: Modified MIT
   openness: open-weight
   commercial_use: conditional
-  license_note: 라이선스 원문 확인 필요
+  license_note: Verify the license text directly
   params: 2.8T total / 104B active (MoE)
   context: 1M
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    에이전트·터미널 작업에 강하다. 2026년 7월 공개 시점 기준 오픈 웨이트 최상위권.
+    Strong on agentic and terminal work. Among the top open-weight models as of its
+    July 2026 release.
   strengths: [agentic, long-context, coding]
   weaknesses: [very-large, self-host-hard]
   links:
@@ -47,7 +48,8 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    MoE 구조로 활성 파라미터가 매우 작아 추론 비용이 낮다. MIT 라이선스로 상업 사용이 자유롭다.
+    MoE design keeps active parameters small, so inference is cheap for its size.
+    MIT licensed, so commercial use is unrestricted.
   strengths: [permissive-license, cost-efficient, long-context, agentic]
   weaknesses: [large-total-params]
   links:
@@ -58,10 +60,10 @@
   benchmarks:
     - name: Terminal-Bench 2.1
       value: 90.6
-      note: 벤더 자체 보고치
+      note: vendor-reported
     - name: DeepSWE v1.1
       value: 74.2
-      note: 벤더 자체 보고치
+      note: vendor-reported
   sources: [https://www.thundercompute.com/blog/best-open-source-llms]
   verified: 2026-09-23
 
@@ -75,13 +77,13 @@
   license: GLM License
   openness: open-weight
   commercial_use: conditional
-  license_note: 5.2 대비 라이선스가 변경됨. 원문 확인 필요
+  license_note: License changed relative to 5.2 — verify the text directly
   params: 753B
   context: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    프런티어급 오픈 웨이트 모델. 종합 성능 상위권.
+    Frontier-class open-weight model, near the top on aggregate benchmarks.
   strengths: [frontier-class]
   weaknesses: [license-restrictive, very-large]
   links:
@@ -105,13 +107,14 @@
   license: MIT
   openness: open-weight
   commercial_use: yes
-  license_note: 상위 모델과 달리 순수 MIT
+  license_note: Plain MIT, unlike the larger GLM-5.3
   params: 320B total / 18B active (MoE)
   context: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    GLM-5.3 계열 중 라이선스가 가장 자유롭다. 활성 파라미터 18B로 추론 부담이 낮다.
+    The most permissively licensed model in the GLM-5.3 family. 18B active parameters
+    keep inference cost low.
   strengths: [permissive-license, cost-efficient]
   weaknesses: []
   links:
@@ -133,14 +136,14 @@
   license: Apache-2.0
   openness: open-weight
   commercial_use: yes
-  license_note: Qwen 계열은 대체로 Apache-2.0. 모델별 확인 권장
+  license_note: Qwen models are generally Apache-2.0; confirm per model
   params: 27B (dense)
   context: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    단일 GPU에서 돌아가는 dense 27B인데 코딩 벤치마크가 프런티어급에 근접한다.
-    자체 호스팅 대비 성능비가 가장 좋은 구간.
+    A dense 27B that fits on one GPU yet approaches frontier-class coding scores.
+    Best performance-per-host in the self-hosted range.
   strengths: [single-gpu, coding, permissive-license]
   weaknesses: []
   links:
@@ -170,7 +173,7 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    2026년 9월 오픈 웨이트 종합 순위 1위.
+    Ranked first on the September 2026 open-weight leaderboard.
   strengths: [top-ranked, permissive-license]
   weaknesses: [large]
   links:
@@ -200,7 +203,8 @@
   vram_min_gb: 24
   runs_on: [gpu, apple-silicon]
   specialization: >
-    24GB 단일 GPU 또는 32GB 맥에서 실행 가능. 로컬 실행을 전제할 때 가장 무난한 선택.
+    Runs on a single 24GB GPU or a 32GB Mac. The safest default when local execution
+    is a requirement.
   strengths: [single-gpu, apple-silicon, permissive-license]
   weaknesses: []
   links:

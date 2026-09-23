@@ -1,4 +1,4 @@
-# 음성 인식 (speech → text)
+# Speech recognition (speech → text)
 
 - id: whisper-large-v3
   name: Whisper large-v3
@@ -15,8 +15,8 @@
   vram_min_gb: null
   runs_on: [gpu, cpu]
   specialization: >
-    범용 전사에서 여전히 가장 무난한 올라운더. 언어 커버리지가 넓어
-    입력 언어를 특정할 수 없을 때 기본값으로 쓴다.
+    Still the safest all-rounder for general transcription. Broad language coverage makes
+    it the default when the input language is unknown.
   strengths: [multilingual, general-purpose, permissive-license]
   weaknesses: [slower-than-parakeet, not-realtime]
   links: {huggingface: https://huggingface.co/openai/whisper-large-v3, github: https://github.com/openai/whisper, paper: null}
@@ -40,8 +40,9 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    52개 언어·방언 지원. 언어 식별, 음성 인식, 타임스탬프 예측을 한 모델로 처리한다.
-    자막 생성처럼 타임스탬프가 필요한 파이프라인에 적합.
+    Covers 52 languages and dialects, handling language identification, recognition and
+    timestamp prediction in one model. A good fit for subtitling and anything else that
+    needs timings.
   strengths: [multilingual, timestamps, language-id]
   weaknesses: []
   links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
@@ -60,12 +61,12 @@
   license: null
   openness: open-weight
   commercial_use: conditional
-  license_note: NVIDIA 모델 라이선스 확인 필요
+  license_note: Verify the NVIDIA model license
   params: 2.5B
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    영어 정확도 기준 현재 최상위. 영어 전용 워크로드라면 Whisper 보다 낫다.
+    Currently the most accurate option for English. Beats Whisper on English-only workloads.
   strengths: [english-accuracy]
   weaknesses: [english-focused, license-unclear]
   links: {huggingface: https://huggingface.co/nvidia, github: null, paper: null}
@@ -84,13 +85,13 @@
   license: null
   openness: open-weight
   commercial_use: conditional
-  license_note: NVIDIA 모델 라이선스 확인 필요
+  license_note: Verify the NVIDIA model license
   params: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    자체 호스팅 가능한 것 중 배치 처리량이 가장 빠르다.
-    대량 아카이브를 한 번에 전사할 때 선택.
+    The fastest self-hostable option for batch throughput. Pick it when transcribing a
+    large archive in one pass.
   strengths: [throughput, batch]
   weaknesses: [license-unclear]
   links: {huggingface: https://huggingface.co/nvidia, github: null, paper: null}
@@ -110,12 +111,12 @@
   openness: open-source
   commercial_use: yes
   license_note: null
-  params: 최소 모델 27MB
+  params: smallest model 27MB
   vram_min_gb: 0
   runs_on: [cpu, edge]
   specialization: >
-    저사양 하드웨어의 실시간 인식을 목표로 만들어졌다. 최소 모델이 27MB 라
-    Whisper 나 NVIDIA 모델이 아예 못 도는 환경에 들어간다.
+    Built for real-time recognition on constrained hardware. At 27MB the smallest model
+    fits where Whisper and the NVIDIA models simply cannot run.
   strengths: [edge, realtime, tiny, permissive-license]
   weaknesses: [lower-accuracy-than-large-models]
   links: {huggingface: null, github: https://github.com/usefulsensors/moonshine, paper: null}

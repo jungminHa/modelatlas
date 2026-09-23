@@ -1,4 +1,4 @@
-# 비전-언어 모델 — 이미지를 이해하고 텍스트로 답한다
+# Vision-language models — understand an image, answer in text
 
 - id: qwen3-vl
   name: Qwen3-VL
@@ -10,13 +10,14 @@
   license: Apache-2.0
   openness: open-weight
   commercial_use: yes
-  license_note: 모델 크기별 라이선스 확인 권장
+  license_note: Confirm the license per model size
   params: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    2026년 오픈소스 VLM 중 성능·지연 양쪽에서 선두권. 이미지 설명·문서 이해·
-    시각 에이전트에 두루 쓰인다. 조합 파이프라인의 표준 출발점.
+    Front of the pack on both quality and latency among 2026 open VLMs. Used for image
+    description, document understanding and visual agents alike — the default first block
+    in a composed pipeline.
   strengths: [sota, low-latency, permissive-license]
   weaknesses: []
   links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}
@@ -35,19 +36,20 @@
   license: null
   openness: open-weight
   commercial_use: conditional
-  license_note: 라이선스 확인 필요
+  license_note: License needs verification
   params: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    3D 추론이 강점. 공개 벤치마크 42종에서 동급 오픈소스 모델 중 최상위를 기록했다.
+    Strong 3D reasoning. Reported state of the art among similarly sized open models
+    across 42 public benchmarks.
   strengths: [3d-reasoning, benchmark-leading]
   weaknesses: [license-unclear]
   links: {huggingface: https://huggingface.co/zai-org, github: null, paper: null}
   released: 2025
   benchmarks:
-    - name: 공개 벤치마크 42종
-      value: 동급 오픈소스 중 SOTA
+    - name: 42 public benchmarks
+      value: SOTA among comparable open models
   sources: [https://www.bentoml.com/blog/multimodal-ai-a-guide-to-open-source-vision-language-models]
   verified: 2026-09-23
 
@@ -61,12 +63,13 @@
   license: null
   openness: open-weight
   commercial_use: conditional
-  license_note: 라이선스 확인 필요
+  license_note: License needs verification
   params: 241B (flagship)
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    시각 해상도 라우터로 추론 효율을 높였다. 플래그십 241B 는 오픈소스 VLM 중 SOTA.
+    A visual-resolution router improves inference efficiency. The 241B flagship is state of
+    the art among open VLMs.
   strengths: [sota, efficient-inference]
   weaknesses: [very-large, license-unclear]
   links: {huggingface: https://huggingface.co/OpenGVLab, github: https://github.com/OpenGVLab/InternVL, paper: null}
@@ -90,8 +93,8 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    시각 에이전트 용도에 특히 잘 맞는다. UI 조작·문서 탐색처럼
-    이미지를 보고 행동을 결정하는 작업에 쓰인다.
+    Particularly well suited to visual agents — driving a UI, navigating documents, and
+    other tasks where the model looks at an image and decides what to do next.
   strengths: [visual-agent, permissive-license]
   weaknesses: []
   links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: null}

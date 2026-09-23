@@ -1,4 +1,4 @@
-# 임베딩 · 리랭킹 — RAG 파이프라인의 기반
+# Embedding and reranking — the foundation of a RAG pipeline
 
 - id: qwen3-embedding-8b
   name: Qwen3-Embedding-8B
@@ -15,17 +15,17 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    100개 이상의 자연어·프로그래밍 언어를 지원하고 MTEB 선두권.
-    사용자 정의 지시문을 받아 도메인별로 동작을 조정할 수 있다.
-    0.6B · 4B 변형이 있어 자원에 맞춰 고를 수 있다.
+    Covers 100+ natural and programming languages and leads the MTEB snapshot. Accepts
+    user-defined instructions so behaviour can be tuned per domain. 0.6B and 4B variants
+    let you trade quality for resources.
   strengths: [mteb-leading, multilingual, instruction-tunable]
   weaknesses: [gpu-required]
   links: {huggingface: https://huggingface.co/Qwen, github: https://github.com/QwenLM, paper: https://arxiv.org/abs/2506.05176}
   released: 2025-06
   benchmarks:
     - name: MTEB
-      value: 선두
-      note: 2026-09 스냅샷 기준
+      value: leading
+      note: as of the 2026-09 snapshot
   sources: [https://www.bentoml.com/blog/a-guide-to-open-source-embedding-models]
   verified: 2026-09-23
 
@@ -44,8 +44,8 @@
   vram_min_gb: null
   runs_on: [gpu, cpu]
   specialization: >
-    100개 이상 언어를 다루는 다국어 자체 호스팅 표준. 큰 모델을 띄우기
-    어려운 환경에서 Qwen3 대신 쓰는 기본 선택지.
+    The self-hosted multilingual standard across 100+ languages. The default alternative to
+    Qwen3 where a larger model is impractical to serve.
   strengths: [multilingual, lightweight, permissive-license]
   weaknesses: [below-qwen3-on-mteb]
   links: {huggingface: https://huggingface.co/BAAI/bge-m3, github: https://github.com/FlagOpen/FlagEmbedding, paper: null}
@@ -69,8 +69,8 @@
   vram_min_gb: null
   runs_on: [gpu, cpu]
   specialization: >
-    임베딩 검색 결과를 재정렬한다. BGE-M3 와 묶으면 라이선스 비용 0 으로
-    2단계 검색 파이프라인이 완성된다.
+    Reranks embedding search results. Paired with BGE-M3 it completes a two-stage retrieval
+    pipeline at zero licensing cost.
   strengths: [permissive-license, pairs-with-bge-m3]
   weaknesses: []
   links: {huggingface: https://huggingface.co/BAAI, github: https://github.com/FlagOpen/FlagEmbedding, paper: null}
@@ -94,8 +94,8 @@
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
-    텍스트와 이미지를 같은 벡터 공간에 넣는다. 이미지로 문서를 찾거나
-    텍스트로 이미지를 찾는 검색에 쓴다. 리랭커가 짝으로 제공된다.
+    Places text and images in one vector space, so you can retrieve documents by image or
+    images by text. A matching reranker ships alongside it.
   strengths: [multimodal-retrieval, permissive-license]
   weaknesses: []
   links: {huggingface: https://huggingface.co/Qwen, github: null, paper: https://arxiv.org/abs/2601.04720}

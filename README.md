@@ -1,162 +1,162 @@
 # ModelAtlas
 
-> 공개된 오픈소스·오픈웨이트 AI 모델을 **용도별로 찾고, 라이선스를 확인하고, 조합해서 쓰기** 위한 카탈로그.
+> A catalog of open-source and open-weight AI models — **find them by what they do, check the license, and compose them into pipelines.**
 
-**모델 41개 · 카테고리 9개** · 최종 갱신 2026-09-23
+**41 models · 9 categories** · last updated 2026-09-23
 
 | | |
 |---|---|
-| 상업 사용 자유 | 25개 |
-| 조건부·불가 | 16개 |
-| 라이선스 미확인 | 9개 |
+| Free for commercial use | 25 |
+| Conditional or prohibited | 16 |
+| License unverified | 9 |
 
 ---
 
-## 이 카탈로그가 다른 점
+## What makes this different
 
-**1. 링크 모음이 아니라 구조화된 데이터입니다.**  
-원본은 [`data/*.yaml`](data/)이고 이 README 와 [`dist/index.json`](dist/index.json)은 거기서 생성됩니다.
+**1. Structured data, not a link list.**  
+The source of truth is [`data/*.yaml`](data/). This README and [`dist/index.json`](dist/index.json) are generated from it.
 
-**2. 모델마다 입출력 타입이 선언되어 있습니다.**  
-그래서 *어떤 모델을 어떤 모델 뒤에 붙일 수 있는지* 기계가 판정합니다. 아래 조합 예시 참조.
+**2. Every model declares its input and output types.**  
+That is what lets a machine decide *which model can follow which*. See [Composing models](#composing-models) below.
 
-**3. 라이선스를 1급 정보로 다룹니다.**  
-가장 흔한 사고가 여기서 납니다. 예를 들어 **XTTS-v2 는 HuggingFace 최다 다운로드 TTS 모델이지만 비상업 용도만 허용**합니다. 
-또한 널리 쓰이는 모델 대부분(Llama·Qwen·Gemma·DeepSeek·Kimi·GLM)은 OSI 기준 오픈소스가 아니라 **오픈웨이트**입니다.
+**3. Licensing is a first-class field.**  
+This is where people get burned. **XTTS-v2 is the most-downloaded TTS model on Hugging Face, yet its weights are non-commercial only.** And most widely used models (Llama, Qwen, Gemma, DeepSeek, Kimi, GLM) are **open-weight, not OSI open-source** — the `openness` field records that distinction.
 
-**4. 모르는 값은 비워 둡니다.**  
-VRAM 요건이나 라이선스를 추측해서 적으면 사용자가 실제로 손해를 봅니다. 미확인은 `—` 로 표시됩니다.
+**4. Unknown values are left empty.**  
+Guessing a VRAM requirement or a license costs the reader real money. Unverified fields show as `—` and the validator flags them.
 
 ---
 
-## 카테고리
+## Categories
 
-- [대형 언어 모델 (7)](#llm)
-- [소형 언어 모델 (1)](#slm)
-- [비전-언어 모델 (4)](#vlm)
-- [컴퓨터 비전 (6)](#vision)
-- [음성 인식 (5)](#asr)
-- [음성 합성 (5)](#tts)
-- [이미지 생성 (4)](#image-gen)
-- [영상 생성 (5)](#video-gen)
-- [임베딩·리랭킹 (4)](#embedding)
+- [Large Language Models (7)](#llm)
+- [Small Language Models (1)](#slm)
+- [Vision-Language Models (4)](#vlm)
+- [Computer Vision (6)](#vision)
+- [Speech Recognition (5)](#asr)
+- [Text to Speech (5)](#tts)
+- [Image Generation (4)](#image-gen)
+- [Video Generation (5)](#video-gen)
+- [Embedding & Reranking (4)](#embedding)
 
 ---
 
 <a id="llm"></a>
 
-## 대형 언어 모델
+## Large Language Models
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **DeepSeek-V4.1-Flash** | MoE 구조로 활성 파라미터가 매우 작아 추론 비용이 낮다. MIT 라이선스로 상업 사용이 자유롭다. | `text` → `text` | MIT <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/deepseek-ai) · [GH](https://github.com/deepseek-ai) |
-| **GLM-5.3** | 프런티어급 오픈 웨이트 모델. 종합 성능 상위권. | `text` → `text` | GLM License <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/zai-org) |
-| **GLM-5.3-Flash** | GLM-5.3 계열 중 라이선스가 가장 자유롭다. 활성 파라미터 18B로 추론 부담이 낮다. | `text` → `text` | MIT <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/zai-org) |
-| **Kimi K3** | 에이전트·터미널 작업에 강하다. 2026년 7월 공개 시점 기준 오픈 웨이트 최상위권. | `text` → `text` | Modified MIT <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/moonshotai) |
-| **Qwen3.6-27B** | 단일 GPU에서 돌아가는 dense 27B인데 코딩 벤치마크가 프런티어급에 근접한다. 자체 호스팅 대비 성능비가 가장 좋은 구간. | `text` → `text` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
-| **Qwen3.8 Max** | 2026년 9월 오픈 웨이트 종합 순위 1위. | `text` → `text` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
-| **Qwen3.8-27B** | 24GB 단일 GPU 또는 32GB 맥에서 실행 가능. 로컬 실행을 전제할 때 가장 무난한 선택. | `text` → `text` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu, apple-silicon · 24GB+ | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **DeepSeek-V4.1-Flash** | MoE design keeps active parameters small, so inference is cheap for its size. MIT licensed, so commercial us… | `text` → `text` | MIT <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/deepseek-ai) · [GH](https://github.com/deepseek-ai) |
+| **GLM-5.3** | Frontier-class open-weight model, near the top on aggregate benchmarks. | `text` → `text` | GLM License <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/zai-org) |
+| **GLM-5.3-Flash** | The most permissively licensed model in the GLM-5.3 family. 18B active parameters keep inference cost low. | `text` → `text` | MIT <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/zai-org) |
+| **Kimi K3** | Strong on agentic and terminal work. Among the top open-weight models as of its July 2026 release. | `text` → `text` | Modified MIT <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/moonshotai) |
+| **Qwen3.6-27B** | A dense 27B that fits on one GPU yet approaches frontier-class coding scores. Best performance-per-host in t… | `text` → `text` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **Qwen3.8 Max** | Ranked first on the September 2026 open-weight leaderboard. | `text` → `text` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **Qwen3.8-27B** | Runs on a single 24GB GPU or a 32GB Mac. The safest default when local execution is a requirement. | `text` → `text` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu, apple-silicon · 24GB+ | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
 
 <a id="slm"></a>
 
-## 소형 언어 모델
+## Small Language Models
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **Gemma 4** | 16GB 미만 환경에서 쓸 수 있는 소형 모델 중 성능이 가장 나은 축. 노트북·저사양 GPU에서 로컬 실행을 전제할 때의 기본 선택지. | `text` → `text` | Gemma Terms of Use <sup>가중치</sup> | ⚠️ 조건부 | gpu, cpu, apple-silicon · 16GB+ | [HF](https://huggingface.co/google) |
+| **Gemma 4** | Among the strongest small models that fit under 16GB. The default pick for laptops and low-end GPUs when eve… | `text` → `text` | Gemma Terms of Use <sup>weights</sup> | ⚠️ Conditional | gpu, cpu, apple-silicon · 16GB+ | [HF](https://huggingface.co/google) |
 
 <a id="vlm"></a>
 
-## 비전-언어 모델
+## Vision-Language Models
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **GLM-4.5V** | 3D 추론이 강점. 공개 벤치마크 42종에서 동급 오픈소스 모델 중 최상위를 기록했다. | `image,text` → `text` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/zai-org) |
-| **InternVL3.5** | 시각 해상도 라우터로 추론 효율을 높였다. 플래그십 241B 는 오픈소스 VLM 중 SOTA. | `image,text` → `text` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/OpenGVLab) · [GH](https://github.com/OpenGVLab/InternVL) |
-| **Qwen2.5-VL-32B-Instruct** | 시각 에이전트 용도에 특히 잘 맞는다. UI 조작·문서 탐색처럼 이미지를 보고 행동을 결정하는 작업에 쓰인다. | `image,text` → `text` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
-| **Qwen3-VL** | 2026년 오픈소스 VLM 중 성능·지연 양쪽에서 선두권. 이미지 설명·문서 이해· 시각 에이전트에 두루 쓰인다. 조합 파이프라인의 표준 출발점. | `image,text` → `text` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **GLM-4.5V** | Strong 3D reasoning. Reported state of the art among similarly sized open models across 42 public benchmarks. | `image,text` → `text` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/zai-org) |
+| **InternVL3.5** | A visual-resolution router improves inference efficiency. The 241B flagship is state of the art among open V… | `image,text` → `text` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/OpenGVLab) · [GH](https://github.com/OpenGVLab/InternVL) |
+| **Qwen2.5-VL-32B-Instruct** | Particularly well suited to visual agents — driving a UI, navigating documents, and other tasks where the mo… | `image,text` → `text` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **Qwen3-VL** | Front of the pack on both quality and latency among 2026 open VLMs. Used for image description, document und… | `image,text` → `text` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
 
 <a id="vision"></a>
 
-## 컴퓨터 비전
+## Computer Vision
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **Florence-2** | OCR 과 비전-언어 작업을 한 모델로 처리한다. 캡셔닝·검출·OCR 을 프롬프트로 전환하며 쓸 수 있어 조합 파이프라인에 넣기 편하다. | `image,text` → `text,boxes` | MIT <sup>OSI</sup> | ✅ 가능 | gpu, cpu | [HF](https://huggingface.co/microsoft/Florence-2-large) |
-| **GLM-OCR** | 문서 이미지에서 텍스트를 추출한다. 2026년 기준 OCR 용도 선두권. | `image` → `text` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/zai-org) |
-| **RF-DETR** | COCO 와 실환경 벤치마크(RF100-VL) 양쪽에서 1위. 대부분의 비전 프로젝트에서 정확도 기준 첫 선택지로 권장된다. | `image` → `boxes,mask` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | gpu | [GH](https://github.com/roboflow/rf-detr) |
-| **SAM 2** | 영상에서 프레임 간 메모리를 유지해 클릭·박스·마스크로 선택한 객체를 끝까지 추적한다. 영상 분할이 필요하면 여기부터 본다. | `image,video` → `mask` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | gpu | [GH](https://github.com/facebookresearch/sam2) |
-| **SAM 3** | 프롬프트 기반 분할과 open-vocabulary 분할을 함께 지원한다. 데이터셋 라벨링을 빠르게 만들 때 특히 유용하다. | `image,video,text` → `mask` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [GH](https://github.com/facebookresearch) |
-| **YOLO26** | 엣지·실시간에 최적화. NMS 없는 end-to-end 예측으로 후처리가 단순하고, CPU 추론이 YOLO11-N 대비 최대 43% 빠르다. 검출·분할·분류·… | `image,video` → `boxes,mask` | AGPL-3.0 <sup>OSI</sup> | ⚠️ 조건부 | gpu, cpu, edge | [GH](https://github.com/ultralytics/ultralytics) · [논문](https://arxiv.org/abs/2606.03748) |
+| **Florence-2** | Handles OCR and vision-language tasks in one model. Captioning, detection and OCR are switched by prompt, wh… | `image,text` → `text,boxes` | MIT <sup>OSI</sup> | ✅ Yes | gpu, cpu | [HF](https://huggingface.co/microsoft/Florence-2-large) |
+| **GLM-OCR** | Extracts text from document images. Among the leading OCR options as of 2026. | `image` → `text` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/zai-org) |
+| **RF-DETR** | Tops both COCO and the real-world RF100-VL benchmark. The recommended accuracy-first starting point for most… | `image` → `boxes,mask` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | gpu | [GH](https://github.com/roboflow/rf-detr) |
+| **SAM 2** | Carries memory across video frames, so an object picked by click, box or mask is tracked to the end of the c… | `image,video` → `mask` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | gpu | [GH](https://github.com/facebookresearch/sam2) |
+| **SAM 3** | Supports both promptable and open-vocabulary segmentation. Especially useful for building labelled datasets … | `image,video,text` → `mask` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [GH](https://github.com/facebookresearch) |
+| **YOLO26** | Optimized for edge and real-time use. NMS-free end-to-end prediction simplifies post-processing, and CPU inf… | `image,video` → `boxes,mask` | AGPL-3.0 <sup>OSI</sup> | ⚠️ Conditional | gpu, cpu, edge | [GH](https://github.com/ultralytics/ultralytics) · [paper](https://arxiv.org/abs/2606.03748) |
 
 <a id="asr"></a>
 
-## 음성 인식
+## Speech Recognition
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **Moonshine** | 저사양 하드웨어의 실시간 인식을 목표로 만들어졌다. 최소 모델이 27MB 라 Whisper 나 NVIDIA 모델이 아예 못 도는 환경에 들어간다. | `speech` → `text` | MIT <sup>OSI</sup> | ✅ 가능 | cpu, edge · CPU | [GH](https://github.com/usefulsensors/moonshine) |
-| **NVIDIA Canary-Qwen 2.5B** | 영어 정확도 기준 현재 최상위. 영어 전용 워크로드라면 Whisper 보다 낫다. | `speech` → `text` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/nvidia) |
-| **NVIDIA Parakeet TDT** | 자체 호스팅 가능한 것 중 배치 처리량이 가장 빠르다. 대량 아카이브를 한 번에 전사할 때 선택. | `speech` → `text` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/nvidia) |
-| **Qwen3-ASR** | 52개 언어·방언 지원. 언어 식별, 음성 인식, 타임스탬프 예측을 한 모델로 처리한다. 자막 생성처럼 타임스탬프가 필요한 파이프라인에 적합. | `speech` → `text` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
-| **Whisper large-v3** | 범용 전사에서 여전히 가장 무난한 올라운더. 언어 커버리지가 넓어 입력 언어를 특정할 수 없을 때 기본값으로 쓴다. | `speech` → `text` | MIT <sup>OSI</sup> | ✅ 가능 | gpu, cpu | [HF](https://huggingface.co/openai/whisper-large-v3) · [GH](https://github.com/openai/whisper) |
+| **Moonshine** | Built for real-time recognition on constrained hardware. At 27MB the smallest model fits where Whisper and t… | `speech` → `text` | MIT <sup>OSI</sup> | ✅ Yes | cpu, edge | [GH](https://github.com/usefulsensors/moonshine) |
+| **NVIDIA Canary-Qwen 2.5B** | Currently the most accurate option for English. Beats Whisper on English-only workloads. | `speech` → `text` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/nvidia) |
+| **NVIDIA Parakeet TDT** | The fastest self-hostable option for batch throughput. Pick it when transcribing a large archive in one pass. | `speech` → `text` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/nvidia) |
+| **Qwen3-ASR** | Covers 52 languages and dialects, handling language identification, recognition and timestamp prediction in … | `speech` → `text` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **Whisper large-v3** | Still the safest all-rounder for general transcription. Broad language coverage makes it the default when th… | `speech` → `text` | MIT <sup>OSI</sup> | ✅ Yes | gpu, cpu | [HF](https://huggingface.co/openai/whisper-large-v3) · [GH](https://github.com/openai/whisper) |
 
 <a id="tts"></a>
 
-## 음성 합성
+## Text to Speech
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **Chatterbox** | 상업 배포가 안전하면서 음성 복제를 지원한다. XTTS-v2 의 라이선스 대안으로 자주 거론된다. | `text,speech` → `speech` | MIT <sup>OSI</sup> | ✅ 가능 | gpu | [GH](https://github.com/resemble-ai/chatterbox) |
-| **F5-TTS** | flow matching 기반. 음성 복제 품질이 특히 좋아 참조 음성을 주면 해당 목소리로 합성한다. 품질 우선이면 여기부터. | `text,speech` → `speech` | MIT <sup>OSI</sup> | ✅ 가능 | gpu | [GH](https://github.com/SWivid/F5-TTS) · [논문](https://arxiv.org/abs/2410.06885) |
-| **Kokoro** | 82M 파라미터로 매우 가볍다. CPU 에서도 실용적인 속도가 나와 로컬 조합 파이프라인의 마지막 단계로 넣기 가장 쉽다. 다만 음성 샘플로 목소리를 복제하는… | `text` → `speech` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | cpu, gpu, edge · CPU | [HF](https://huggingface.co/hexgrad/Kokoro-82M) |
-| **Qwen3-TTS** | 상업 배포가 안전한 선택지 중 하나. Qwen 생태계의 다른 모델과 조합하기 좋다. | `text` → `speech` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
-| **XTTS-v2** | 6초 샘플만으로 다른 언어로 목소리를 복제한다. 기능은 뛰어나지만 라이선스 때문에 상업 사용은 불가하다. | `text,speech` → `speech` | Coqui Public Model License <sup>가중치</sup> | ❌ 불가 | gpu | [HF](https://huggingface.co/coqui/XTTS-v2) |
+| **Chatterbox** | Safe for commercial deployment and still supports voice cloning — the usual license-safe alternative to XTTS… | `text,speech` → `speech` | MIT <sup>OSI</sup> | ✅ Yes | gpu | [GH](https://github.com/resemble-ai/chatterbox) |
+| **F5-TTS** | Flow-matching based, with notably good voice cloning — give it a reference clip and it synthesizes in that v… | `text,speech` → `speech` | MIT <sup>OSI</sup> | ✅ Yes | gpu | [GH](https://github.com/SWivid/F5-TTS) · [paper](https://arxiv.org/abs/2410.06885) |
+| **Kokoro** | Very light at 82M parameters, fast enough on CPU to be the easiest final stage in a local pipeline. It canno… | `text` → `speech` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | cpu, gpu, edge | [HF](https://huggingface.co/hexgrad/Kokoro-82M) |
+| **Qwen3-TTS** | One of the safe picks for commercial deployment, and easy to pair with other models in the Qwen ecosystem. | `text` → `speech` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **XTTS-v2** | Clones a voice into another language from a six-second sample. Capable, but the license rules out commercial… | `text,speech` → `speech` | Coqui Public Model License <sup>weights</sup> | ❌ No | gpu | [HF](https://huggingface.co/coqui/XTTS-v2) |
 
 <a id="image-gen"></a>
 
-## 이미지 생성
+## Image Generation
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **FLUX.2** | 사실감과 출력 품질에서 오픈 모델 중 선두. 전문 작업물 품질이 필요할 때 선택. | `text,image` → `image` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/black-forest-labs) |
-| **Qwen-Image** | 상업 사용이 자유로운 이미지 생성 모델. 텍스트 렌더링 품질이 좋은 편으로 알려져 있다. | `text,image` → `image` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
-| **Stable Diffusion 3.5** | 생태계 깊이와 파인튜닝 유연성이 최대 강점. LoRA·ControlNet 등 주변 도구가 가장 많아 커스터마이징이 필요하면 여기가 유리하다. | `text,image` → `image` | Stability Community License <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/stabilityai) |
-| **Z-Image Turbo** | 추론 스텝이 매우 적은데도 FLUX.2 dev, HunyuanImage 3.0, Imagen 4 급 품질을 낸다. 지연이 중요한 조합 파이프라인에 유리하다. | `text` → `image` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | — |
+| **FLUX.2** | Leads open models on photorealism and output quality. Pick it when the result has to stand up as professiona… | `text,image` → `image` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/black-forest-labs) |
+| **Qwen-Image** | An image model that is unrestricted for commercial use, and reported to render text inside images unusually … | `text,image` → `image` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) |
+| **Stable Diffusion 3.5** | Deepest ecosystem and the most flexible for fine-tuning. LoRA, ControlNet and the rest of the tooling are ri… | `text,image` → `image` | Stability Community License <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/stabilityai) |
+| **Z-Image Turbo** | Matches or beats FLUX.2 [dev], HunyuanImage 3.0 and Imagen 4 while needing only a few inference steps. Usefu… | `text` → `image` | — <sup>weights</sup> | ⚠️ Conditional | gpu | — |
 
 <a id="video-gen"></a>
 
-## 영상 생성
+## Video Generation
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **CogVideoX** | 비교적 초기부터 공개되어 주변 도구와 예제가 많다. 파인튜닝 자료가 필요할 때 유리. | `text,image` → `video` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/zai-org) · [GH](https://github.com/zai-org/CogVideo) |
-| **HunyuanVideo 1.5** | FP8 과 CPU 오프로딩을 쓰면 RTX 4090 단일 GPU, 약 14GB VRAM 에서 실행된다. 소비자용 GPU 한 장으로 돌리는 것이 목표라면 후보. | `text,image` → `video` | Tencent Hunyuan Community License <sup>가중치</sup> | ⚠️ 조건부 | gpu · 14GB+ | [HF](https://huggingface.co/tencent) · [GH](https://github.com/Tencent-Hunyuan) |
-| **LTX-2.3** | 오픈 모델 중 유일하게 네이티브 오디오를 지원한다. 영상과 동기화된 소리를 한 번의 디퓨전 패스에서 함께 생성하며 4K·50fps 출력이 가능하다. 후처리로 … | `text,image` → `video,audio` | — <sup>가중치</sup> | ⚠️ 조건부 | gpu | [HF](https://huggingface.co/Lightricks) · [GH](https://github.com/Lightricks/LTX-Video) |
-| **Mochi 1** | Apache-2.0 영상 생성 모델. 동작 표현이 강점으로 알려져 있다. | `text` → `video` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/genmo) · [GH](https://github.com/genmoai/mochi) |
-| **Wan 2.2** | Apache-2.0 로 상업 사용이 자유롭고, 5B GGUF 에 메모리 오프로딩을 쓰면 VRAM 8GB 에서도 돈다. 로컬 실행 전제라면 가장 현실적인 선택.… | `text,image` → `video` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | gpu · 8GB+ | [HF](https://huggingface.co/Wan-AI) · [GH](https://github.com/Wan-Video) |
+| **CogVideoX** | Released early enough to have accumulated tooling and examples — helpful when fine-tuning references are nee… | `text,image` → `video` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/zai-org) · [GH](https://github.com/zai-org/CogVideo) |
+| **HunyuanVideo 1.5** | Runs on a single RTX 4090 at roughly 14GB of VRAM with FP8 and CPU offloading. A candidate when one consumer… | `text,image` → `video` | Tencent Hunyuan Community License <sup>weights</sup> | ⚠️ Conditional | gpu · 14GB+ | [HF](https://huggingface.co/tencent) · [GH](https://github.com/Tencent-Hunyuan) |
+| **LTX-2.3** | The only open model with native audio: it generates synchronized sound and video in a single diffusion pass,… | `text,image` → `video,audio` | — <sup>weights</sup> | ⚠️ Conditional | gpu | [HF](https://huggingface.co/Lightricks) · [GH](https://github.com/Lightricks/LTX-Video) |
+| **Mochi 1** | An Apache-2.0 video model, reported to be strong on motion. | `text` → `video` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/genmo) · [GH](https://github.com/genmoai/mochi) |
+| **Wan 2.2** | Apache-2.0, so commercial use is unrestricted, and the 5B GGUF runs in 8GB of VRAM with memory offloading. T… | `text,image` → `video` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | gpu · 8GB+ | [HF](https://huggingface.co/Wan-AI) · [GH](https://github.com/Wan-Video) |
 
 <a id="embedding"></a>
 
-## 임베딩·리랭킹
+## Embedding & Reranking
 
-| 모델 | 특화 | 입력 → 출력 | 라이선스 | 상업 | 실행 | 링크 |
+| Model | Best at | In → Out | License | Commercial | Runs on | Links |
 |---|---|---|---|---|---|---|
-| **BGE-M3** | 100개 이상 언어를 다루는 다국어 자체 호스팅 표준. 큰 모델을 띄우기 어려운 환경에서 Qwen3 대신 쓰는 기본 선택지. | `text` → `embedding` | MIT <sup>OSI</sup> | ✅ 가능 | gpu, cpu | [HF](https://huggingface.co/BAAI/bge-m3) · [GH](https://github.com/FlagOpen/FlagEmbedding) |
-| **BGE-reranker-v2** | 임베딩 검색 결과를 재정렬한다. BGE-M3 와 묶으면 라이선스 비용 0 으로 2단계 검색 파이프라인이 완성된다. | `text` → `score` | Apache-2.0 <sup>OSI</sup> | ✅ 가능 | gpu, cpu | [HF](https://huggingface.co/BAAI) · [GH](https://github.com/FlagOpen/FlagEmbedding) |
-| **Qwen3-Embedding-8B** | 100개 이상의 자연어·프로그래밍 언어를 지원하고 MTEB 선두권. 사용자 정의 지시문을 받아 도메인별로 동작을 조정할 수 있다. 0.6B · 4B 변형이 있… | `text` → `embedding` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) · [논문](https://arxiv.org/abs/2506.05176) |
-| **Qwen3-VL-Embedding** | 텍스트와 이미지를 같은 벡터 공간에 넣는다. 이미지로 문서를 찾거나 텍스트로 이미지를 찾는 검색에 쓴다. 리랭커가 짝으로 제공된다. | `text,image` → `embedding` | Apache-2.0 <sup>가중치</sup> | ✅ 가능 | gpu | [HF](https://huggingface.co/Qwen) · [논문](https://arxiv.org/abs/2601.04720) |
+| **BGE-M3** | The self-hosted multilingual standard across 100+ languages. The default alternative to Qwen3 where a larger… | `text` → `embedding` | MIT <sup>OSI</sup> | ✅ Yes | gpu, cpu | [HF](https://huggingface.co/BAAI/bge-m3) · [GH](https://github.com/FlagOpen/FlagEmbedding) |
+| **BGE-reranker-v2** | Reranks embedding search results. Paired with BGE-M3 it completes a two-stage retrieval pipeline at zero lic… | `text` → `score` | Apache-2.0 <sup>OSI</sup> | ✅ Yes | gpu, cpu | [HF](https://huggingface.co/BAAI) · [GH](https://github.com/FlagOpen/FlagEmbedding) |
+| **Qwen3-Embedding-8B** | Covers 100+ natural and programming languages and leads the MTEB snapshot. Accepts user-defined instructions… | `text` → `embedding` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [GH](https://github.com/QwenLM) · [paper](https://arxiv.org/abs/2506.05176) |
+| **Qwen3-VL-Embedding** | Places text and images in one vector space, so you can retrieve documents by image or images by text. A matc… | `text,image` → `embedding` | Apache-2.0 <sup>weights</sup> | ✅ Yes | gpu | [HF](https://huggingface.co/Qwen) · [paper](https://arxiv.org/abs/2601.04720) |
 
 ---
 
-## 모델 조합
+<a id="composing-models"></a>
 
-각 모델의 `inputs` / `outputs` 타입으로 연결 가능 여부가 결정됩니다. 
-출력 타입이 다음 모델의 입력 타입에 포함될 때만 이어집니다.
+## Composing models
 
-**타입**  `text` · `image` · `video` · `audio` · `speech` · `boxes` · `mask` · `embedding` · `score`
+Each model declares `inputs` and `outputs`. Two models connect only when an output type of the first appears in the inputs of the second.
 
-### 예시 — 이미지를 설명하고 소리로 읽어주기
+**Types**  `text` · `image` · `video` · `audio` · `speech` · `boxes` · `mask` · `embedding` · `score`
+
+### Example — describe an image and read it aloud
 
 ```
 [image] ──▶ Qwen3-VL          ──▶ Kokoro        ──▶ [speech]
@@ -164,58 +164,64 @@ VRAM 요건이나 라이선스를 추측해서 적으면 사용자가 실제로 
             outputs: text           outputs: speech
 ```
 
-두 모델 모두 상업 사용이 자유롭고 Kokoro 는 82M 이라 CPU 에서도 돕니다.
+Both are free for commercial use, and Kokoro is 82M parameters so it runs on CPU.
 
-### 예시 — 음성 질문에 음성으로 답하기
+### Example — answer a spoken question with speech
 
 ```
 [speech] ─▶ Whisper large-v3 ─▶ Qwen3.8-27B ─▶ Kokoro ─▶ [speech]
             speech→text          text→text       text→speech
 ```
 
-### 타입이 맞지 않는 경우
+### When types do not line up
 
 ```
-[image] ─▶ YOLO26(→boxes) ─▶ Qwen3.8-27B(text→) ✕  boxes 를 받지 못함
-[image] ─▶ Florence-2(→text) ─▶ Qwen3.8-27B(text→) ○
+[image] ─▶ YOLO26 (→boxes)    ─▶ Qwen3.8-27B (text→)  ✕  cannot accept boxes
+[image] ─▶ Florence-2 (→text) ─▶ Qwen3.8-27B (text→)  ○
 ```
 
-### 카테고리 연결 행렬
+### Category connection matrix
 
-`dist/index.json` 의 타입 정보로 자동 생성됩니다. 숫자는 연결 가능한 모델 쌍의 수입니다.
+Generated from the type declarations. Each cell counts the connectable model pairs.
 
-| 앞 \ 뒤 | 대형 언어 모델 | 소형 언어 모델 | 비전-언어 모델 | 컴퓨터 비전 | 음성 인식 | 음성 합성 | 이미지 생성 | 영상 생성 | 임베딩·리랭킹 |
+| from \ to | Large Language Models | Small Language Models | Vision-Language Models | Computer Vision | Speech Recognition | Text to Speech | Image Generation | Video Generation | Embedding & Reranking |
 |---|---|---|---|---|---|---|---|---|---|
-| 대형 언어 모델 | 42 | 7 | 28 | 14 | · | 35 | 28 | 35 | 28 |
-| 소형 언어 모델 | 7 | · | 4 | 2 | · | 5 | 4 | 5 | 4 |
-| 비전-언어 모델 | 28 | 4 | 12 | 8 | · | 20 | 16 | 20 | 16 |
-| 컴퓨터 비전 | 14 | 2 | 8 | 3 | · | 10 | 8 | 10 | 8 |
-| 음성 인식 | 35 | 5 | 20 | 10 | · | 25 | 20 | 25 | 20 |
-| 음성 합성 | · | · | · | · | 25 | 12 | · | · | · |
-| 이미지 생성 | · | · | 16 | 24 | · | · | 9 | 16 | 4 |
-| 영상 생성 | · | · | · | 15 | · | · | · | · | · |
-| 임베딩·리랭킹 | · | · | · | · | · | · | · | · | · |
+| Large Language Models | 42 | 7 | 28 | 14 | · | 35 | 28 | 35 | 28 |
+| Small Language Models | 7 | · | 4 | 2 | · | 5 | 4 | 5 | 4 |
+| Vision-Language Models | 28 | 4 | 12 | 8 | · | 20 | 16 | 20 | 16 |
+| Computer Vision | 14 | 2 | 8 | 3 | · | 10 | 8 | 10 | 8 |
+| Speech Recognition | 35 | 5 | 20 | 10 | · | 25 | 20 | 25 | 20 |
+| Text to Speech | · | · | · | · | 25 | 12 | · | · | · |
+| Image Generation | · | · | 16 | 24 | · | · | 9 | 16 | 4 |
+| Video Generation | · | · | · | 15 | · | · | · | · | · |
+| Embedding & Reranking | · | · | · | · | · | · | · | · | · |
 
 ---
 
-## 기여
+## Contributing
 
-모델 추가는 [`data/`](data/) 의 해당 카테고리 YAML 에 항목을 더하고 검증을 돌리면 됩니다.
+Add a model by appending an entry to the matching YAML file in [`data/`](data/), then run:
 
 ```bash
-python3 scripts/validate.py   # 스키마·타입·중복 ID 검사
-python3 scripts/build.py      # README.md + dist/index.json 재생성
+python3 scripts/validate.py   # schema, types, duplicate ids
+python3 scripts/build.py      # regenerate README.md and dist/index.json
 ```
 
-필드 정의는 [SCHEMA.md](SCHEMA.md) 를 보세요. **모르는 값은 `null` 로 두고 추측하지 마세요.**
+Field definitions are in [SCHEMA.md](SCHEMA.md). **Leave unknown values as `null` — do not guess.** See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## 로드맵
+## Roadmap
 
-- [x] **1단계** — 구조화된 모델 카탈로그 (지금)
-- [ ] **2단계** — 성능 비교 웹사이트, 같은 입력에 대한 모델별 추론 결과 예시
-- [ ] **3단계** — 블록·그래프 편집기로 모델을 조합해 프로덕트 구성
-- [ ] **4단계** — 구성한 프로덕트를 로컬 실행 가능한 형태로 내려받기
+- [x] **Step 1** — structured model catalog *(you are here)*
+- [ ] **Step 2** — comparison site with side-by-side inference on the same input
+- [ ] **Step 3** — block/graph editor to compose models into a product
+- [ ] **Step 4** — export a composed pipeline that runs locally
+
+## License
+
+Catalog data and documentation: **CC BY 4.0**. Code under `scripts/`: **MIT**. See [LICENSE](LICENSE).
+
+Each listed model carries its own license — always check the model's own terms before use. The `license` field here is a pointer, not legal advice.
 
 ---
 
-<sub>카탈로그는 완전하지 않습니다. HuggingFace 에만 수백만 개 리포가 있고, 이 목록은 **용도별로 고를 수 있게 큐레이션한 것**입니다. 각 항목의 `sources` 필드에 근거 링크가 있습니다.</sub>
+<sub>This catalog is curated, not exhaustive. Hugging Face alone hosts millions of repositories; a complete list would not help anyone choose. Every entry carries a `sources` field pointing at where its information came from.</sub>

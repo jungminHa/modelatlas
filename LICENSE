@@ -1,13 +1,15 @@
 Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-이 저장소의 카탈로그 데이터(data/, dist/)와 문서는 CC BY 4.0 으로 배포합니다.
-출처를 밝히면 상업적 이용을 포함해 자유롭게 사용·수정·재배포할 수 있습니다.
+The catalog data (data/, dist/) and documentation in this repository are released under
+CC BY 4.0. You may use, modify and redistribute them — including commercially — as long as
+you give appropriate credit.
 
-전문: https://creativecommons.org/licenses/by/4.0/legalcode
+Full text: https://creativecommons.org/licenses/by/4.0/legalcode
 
-주의: 이 라이선스는 **카탈로그 자체**에만 적용됩니다.
-목록에 실린 각 모델은 저마다 다른 라이선스를 가지며, 해당 모델을 사용할 때는
-반드시 그 모델의 라이선스를 직접 확인해야 합니다.
-카탈로그의 license 필드는 참고 정보이며 법적 조언이 아닙니다.
+The code under scripts/ is released under the MIT License.
 
-scripts/ 의 코드는 MIT License 로 배포합니다.
+IMPORTANT: This license covers the catalog itself, not the models it lists.
+Every model in this catalog carries its own separate license. Always verify a model's own
+terms before using it. The `license` and `commercial_use` fields in this catalog are
+pointers for convenience — they are not legal advice, and some entries are explicitly
+marked unverified.
