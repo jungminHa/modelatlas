@@ -32,6 +32,7 @@
   category: tts
   task: text-to-speech
   vendor: SWivid
+  repo_id: SWivid/F5-TTS
   inputs: [text, speech]
   outputs: [speech]
   license: MIT
@@ -112,6 +113,7 @@
   category: tts
   task: text-to-speech
   vendor: Resemble AI
+  repo_id: ResembleAI/chatterbox
   inputs: [text, speech]
   outputs: [speech]
   license: MIT

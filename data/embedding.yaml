@@ -5,6 +5,7 @@
   category: embedding
   task: text-embedding
   vendor: Alibaba
+  repo_id: Qwen/Qwen3-Embedding-8B
   inputs: [text]
   outputs: [embedding]
   license: Apache-2.0
@@ -61,6 +62,7 @@
   category: embedding
   task: reranking
   vendor: BAAI
+  repo_id: BAAI/bge-reranker-v2-m3
   inputs: [text]
   outputs: [score]
   license: Apache-2.0

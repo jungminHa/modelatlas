@@ -58,6 +58,7 @@
   category: asr
   task: speech-to-text
   vendor: NVIDIA
+  repo_id: nvidia/canary-qwen-2.5b
   inputs: [speech]
   outputs: [text]
   license: null
@@ -83,6 +84,7 @@
   category: asr
   task: speech-to-text
   vendor: NVIDIA
+  repo_id: nvidia/parakeet-tdt-0.6b-v2
   inputs: [speech]
   outputs: [text]
   license: null
@@ -109,6 +111,7 @@
   category: asr
   task: speech-to-text
   vendor: Useful Sensors
+  repo_id: UsefulSensors/moonshine-base
   inputs: [speech]
   outputs: [text]
   license: MIT

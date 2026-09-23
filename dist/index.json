@@ -157,6 +157,7 @@
    "category": "asr",
    "task": "speech-to-text",
    "vendor": "NVIDIA",
+   "repo_id": "nvidia/canary-qwen-2.5b",
    "inputs": [
     "speech"
    ],
@@ -199,6 +200,7 @@
    "category": "asr",
    "task": "speech-to-text",
    "vendor": "NVIDIA",
+   "repo_id": "nvidia/parakeet-tdt-0.6b-v2",
    "inputs": [
     "speech"
    ],
@@ -241,6 +243,7 @@
    "category": "asr",
    "task": "speech-to-text",
    "vendor": "Useful Sensors",
+   "repo_id": "UsefulSensors/moonshine-base",
    "inputs": [
     "speech"
    ],
@@ -286,6 +289,7 @@
    "category": "embedding",
    "task": "text-embedding",
    "vendor": "Alibaba",
+   "repo_id": "Qwen/Qwen3-Embedding-8B",
    "inputs": [
     "text"
    ],
@@ -379,6 +383,7 @@
    "category": "embedding",
    "task": "reranking",
    "vendor": "BAAI",
+   "repo_id": "BAAI/bge-reranker-v2-m3",
    "inputs": [
     "text"
    ],
@@ -461,6 +466,7 @@
    "category": "image-gen",
    "task": "text-to-image",
    "vendor": "Black Forest Labs",
+   "repo_id": "black-forest-labs/FLUX.2-dev",
    "inputs": [
     "text",
     "image"
@@ -505,6 +511,7 @@
    "category": "image-gen",
    "task": "text-to-image",
    "vendor": "Stability AI",
+   "repo_id": "stabilityai/stable-diffusion-3.5-large",
    "inputs": [
     "text",
     "image"
@@ -549,6 +556,7 @@
    "category": "image-gen",
    "task": "text-to-image",
    "vendor": null,
+   "repo_id": "Tongyi-MAI/Z-Image-Turbo",
    "inputs": [
     "text"
    ],
@@ -592,6 +600,7 @@
    "category": "image-gen",
    "task": "text-to-image",
    "vendor": "Alibaba",
+   "repo_id": "Qwen/Qwen-Image",
    "inputs": [
     "text",
     "image"
@@ -633,6 +642,7 @@
    "category": "llm",
    "task": "text-generation",
    "vendor": "Moonshot AI",
+   "repo_id": "moonshotai/Kimi-K3",
    "inputs": [
     "text"
    ],
@@ -684,6 +694,7 @@
    "category": "llm",
    "task": "text-generation",
    "vendor": "DeepSeek",
+   "repo_id": "deepseek-ai/DeepSeek-V4.1-Flash",
    "inputs": [
     "text"
    ],
@@ -741,6 +752,7 @@
    "category": "llm",
    "task": "text-generation",
    "vendor": "Zhipu AI",
+   "repo_id": "zai-org/GLM-5.3",
    "inputs": [
     "text"
    ],
@@ -790,6 +802,7 @@
    "category": "llm",
    "task": "text-generation",
    "vendor": "Zhipu AI",
+   "repo_id": "zai-org/GLM-5.3-Flash",
    "inputs": [
     "text"
    ],
@@ -832,6 +845,7 @@
    "category": "llm",
    "task": "text-generation",
    "vendor": "Alibaba",
+   "repo_id": "Qwen/Qwen3.6-27B",
    "inputs": [
     "text"
    ],
@@ -927,6 +941,7 @@
    "category": "llm",
    "task": "text-generation",
    "vendor": "Alibaba",
+   "repo_id": "Qwen/Qwen3.8-27B",
    "inputs": [
     "text"
    ],
@@ -1061,6 +1076,7 @@
    "category": "tts",
    "task": "text-to-speech",
    "vendor": "SWivid",
+   "repo_id": "SWivid/F5-TTS",
    "inputs": [
     "text",
     "speech"
@@ -1187,6 +1203,7 @@
    "category": "tts",
    "task": "text-to-speech",
    "vendor": "Resemble AI",
+   "repo_id": "ResembleAI/chatterbox",
    "inputs": [
     "text",
     "speech"
@@ -1228,6 +1245,7 @@
    "category": "video-gen",
    "task": "text-to-video",
    "vendor": "Alibaba",
+   "repo_id": "Wan-AI/Wan2.2-TI2V-5B",
    "inputs": [
     "text",
     "image"
@@ -1270,6 +1288,7 @@
    "category": "video-gen",
    "task": "text-to-video",
    "vendor": "Lightricks",
+   "repo_id": "Lightricks/LTX-Video",
    "inputs": [
     "text",
     "image"
@@ -1316,6 +1335,7 @@
    "category": "video-gen",
    "task": "text-to-video",
    "vendor": "Tencent",
+   "repo_id": "tencent/HunyuanVideo-1.5",
    "inputs": [
     "text",
     "image"
@@ -1359,6 +1379,7 @@
    "category": "video-gen",
    "task": "text-to-video",
    "vendor": "Zhipu AI",
+   "repo_id": "zai-org/CogVideoX-5b",
    "inputs": [
     "text",
     "image"
@@ -1402,6 +1423,7 @@
    "category": "video-gen",
    "task": "text-to-video",
    "vendor": "Genmo",
+   "repo_id": "genmo/mochi-1-preview",
    "inputs": [
     "text"
    ],
@@ -1444,6 +1466,7 @@
    "category": "vision",
    "task": "object-detection",
    "vendor": "Roboflow",
+   "repo_id": "Roboflow/rf-detr-base",
    "inputs": [
     "image"
    ],
@@ -1497,6 +1520,7 @@
    "category": "vision",
    "task": "object-detection",
    "vendor": "Ultralytics",
+   "repo_id": "Ultralytics/YOLO26",
    "inputs": [
     "image",
     "video"
@@ -1555,6 +1579,7 @@
    "category": "vision",
    "task": "segmentation",
    "vendor": "Meta",
+   "repo_id": "facebook/sam3",
    "inputs": [
     "image",
     "video",
@@ -1600,6 +1625,7 @@
    "category": "vision",
    "task": "segmentation",
    "vendor": "Meta",
+   "repo_id": "facebook/sam2-hiera-large",
    "inputs": [
     "image",
     "video"
@@ -1643,6 +1669,7 @@
    "category": "vision",
    "task": "ocr",
    "vendor": "Zhipu AI",
+   "repo_id": "zai-org/GLM-OCR",
    "inputs": [
     "image"
    ],
@@ -1728,6 +1755,7 @@
    "category": "vlm",
    "task": "image-understanding",
    "vendor": "Alibaba",
+   "repo_id": "Qwen/Qwen3-VL-8B-Instruct",
    "inputs": [
     "image",
     "text"
@@ -1770,6 +1798,7 @@
    "category": "vlm",
    "task": "image-understanding",
    "vendor": "Zhipu AI",
+   "repo_id": "zai-org/GLM-4.5V",
    "inputs": [
     "image",
     "text"
@@ -1818,6 +1847,7 @@
    "category": "vlm",
    "task": "image-understanding",
    "vendor": "Shanghai AI Lab",
+   "repo_id": "OpenGVLab/InternVL3_5-8B",
    "inputs": [
     "image",
     "text"
@@ -1862,6 +1892,7 @@
    "category": "vlm",
    "task": "image-understanding",
    "vendor": "Alibaba",
+   "repo_id": "Qwen/Qwen2.5-VL-32B-Instruct",
    "inputs": [
     "image",
     "text"

@@ -5,6 +5,7 @@
   category: video-gen
   task: text-to-video
   vendor: Alibaba
+  repo_id: Wan-AI/Wan2.2-TI2V-5B
   inputs: [text, image]
   outputs: [video]
   license: Apache-2.0
@@ -32,6 +33,7 @@
   category: video-gen
   task: text-to-video
   vendor: Lightricks
+  repo_id: Lightricks/LTX-Video
   inputs: [text, image]
   outputs: [video, audio]
   license: null
@@ -59,6 +61,7 @@
   category: video-gen
   task: text-to-video
   vendor: Tencent
+  repo_id: tencent/HunyuanVideo-1.5
   inputs: [text, image]
   outputs: [video]
   license: Tencent Hunyuan Community License
@@ -85,6 +88,7 @@
   category: video-gen
   task: text-to-video
   vendor: Zhipu AI
+  repo_id: zai-org/CogVideoX-5b
   inputs: [text, image]
   outputs: [video]
   license: Apache-2.0
@@ -111,6 +115,7 @@
   category: video-gen
   task: text-to-video
   vendor: Genmo
+  repo_id: genmo/mochi-1-preview
   inputs: [text]
   outputs: [video]
   license: Apache-2.0

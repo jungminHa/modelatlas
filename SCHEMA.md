@@ -25,6 +25,7 @@ later would mean revisiting every entry, so it is required from the start.
   category: embedding             # see the category table below
   task: text-embedding            # finer-grained task
   vendor: Alibaba
+  repo_id: Qwen/Qwen3-Embedding-8B  # exact Hugging Face repo, for scripts/fetch.py
 
   # ── Composability (the basis for step 3) ──
   inputs:  [text]
@@ -148,6 +149,34 @@ OSI open-source — they are open-weight.** The `openness` field records that di
 `commercial_use` records the practical consequence.
 
 ---
+
+## Downloading weights
+
+This repository **does not host model weights** and never will. Three reasons:
+
+1. **Licensing.** Redistributing weights is a separate permission from using them.
+   Several models here — XTTS-v2 among them — forbid it outright, and others
+   (Llama, Gemma) attach conditions to any redistribution.
+2. **Size.** The 14 entries with a known parameter count total roughly **9.5 TB** at
+   fp16. Kimi K3 alone is about 5.6 TB.
+3. **Platform limits.** GitHub blocks files over 100 MiB, and Git LFS on Free/Pro
+   includes 10 GiB of storage and bandwidth.
+
+Instead, `scripts/fetch.py` pulls from the original publisher into a local, gitignored
+`models/` directory, showing the license terms first:
+
+```bash
+python3 scripts/fetch.py --list       # what has a repo recorded
+python3 scripts/fetch.py kokoro       # fetch one
+python3 scripts/fetch.py --status     # what is already local
+```
+
+`repo_id` is what makes a model fetchable. A `links.huggingface` value pointing at an
+organization page is not enough — record the exact repo. **Verify a repo id resolves
+before adding it**; a wrong path produces a 404 at download time, not at review time.
+
+`models/manifest.json` records the exact revision of everything fetched and **is**
+committed, so a working setup can be reproduced without shipping the weights.
 
 ## VRAM requirements
 

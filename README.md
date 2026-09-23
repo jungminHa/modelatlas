@@ -148,6 +148,26 @@ Guessing a VRAM requirement or a license costs the reader real money. Unverified
 
 ---
 
+## Getting the weights
+
+```bash
+python3 scripts/fetch.py --list       # what can be fetched
+python3 scripts/fetch.py kokoro       # download into models/
+python3 scripts/fetch.py --status     # what is already local
+```
+
+**This repository does not host model weights.** `fetch.py` pulls from the original publisher into a local `models/` directory that is gitignored, and prints the license terms before downloading anything.
+
+That is a deliberate choice, not a limitation:
+
+- **Licensing** — redistributing weights is a separate permission from using them. XTTS-v2 forbids it; Llama and Gemma attach conditions.
+- **Size** — the entries with a known parameter count total roughly **9.5 TB** at fp16. Kimi K3 alone is about 5.6 TB.
+- **Platform limits** — GitHub blocks files over 100 MiB; Git LFS on Free/Pro includes 10 GiB of storage and bandwidth.
+
+`models/manifest.json` records the exact revision of everything you fetched and *is* committed, so a setup can be reproduced without shipping the weights.
+
+---
+
 ## Will it run on my machine?
 
 ```bash

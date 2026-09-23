@@ -5,6 +5,7 @@
   category: image-gen
   task: text-to-image
   vendor: Black Forest Labs
+  repo_id: black-forest-labs/FLUX.2-dev
   inputs: [text, image]
   outputs: [image]
   license: null
@@ -31,6 +32,7 @@
   category: image-gen
   task: text-to-image
   vendor: Stability AI
+  repo_id: stabilityai/stable-diffusion-3.5-large
   inputs: [text, image]
   outputs: [image]
   license: Stability Community License
@@ -57,6 +59,7 @@
   category: image-gen
   task: text-to-image
   vendor: null
+  repo_id: Tongyi-MAI/Z-Image-Turbo
   inputs: [text]
   outputs: [image]
   license: null
@@ -83,6 +86,7 @@
   category: image-gen
   task: text-to-image
   vendor: Alibaba
+  repo_id: Qwen/Qwen-Image
   inputs: [text, image]
   outputs: [image]
   license: Apache-2.0

@@ -5,6 +5,7 @@
   category: vlm
   task: image-understanding
   vendor: Alibaba
+  repo_id: Qwen/Qwen3-VL-8B-Instruct
   inputs: [image, text]
   outputs: [text]
   license: Apache-2.0
@@ -32,6 +33,7 @@
   category: vlm
   task: image-understanding
   vendor: Zhipu AI
+  repo_id: zai-org/GLM-4.5V
   inputs: [image, text]
   outputs: [text]
   license: null
@@ -60,6 +62,7 @@
   category: vlm
   task: image-understanding
   vendor: Shanghai AI Lab
+  repo_id: OpenGVLab/InternVL3_5-8B
   inputs: [image, text]
   outputs: [text]
   license: null
@@ -86,6 +89,7 @@
   category: vlm
   task: image-understanding
   vendor: Alibaba
+  repo_id: Qwen/Qwen2.5-VL-32B-Instruct
   inputs: [image, text]
   outputs: [text]
   license: Apache-2.0

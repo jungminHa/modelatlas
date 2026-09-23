@@ -107,6 +107,32 @@ def build_readme(models):
 
     A("---")
     A("")
+    A("## Getting the weights")
+    A("")
+    A("```bash")
+    A("python3 scripts/fetch.py --list       # what can be fetched")
+    A("python3 scripts/fetch.py kokoro       # download into models/")
+    A("python3 scripts/fetch.py --status     # what is already local")
+    A("```")
+    A("")
+    A("**This repository does not host model weights.** `fetch.py` pulls from the original "
+      "publisher into a local `models/` directory that is gitignored, and prints the "
+      "license terms before downloading anything.")
+    A("")
+    A("That is a deliberate choice, not a limitation:")
+    A("")
+    A("- **Licensing** — redistributing weights is a separate permission from using them. "
+      "XTTS-v2 forbids it; Llama and Gemma attach conditions.")
+    A("- **Size** — the entries with a known parameter count total roughly **9.5 TB** at "
+      "fp16. Kimi K3 alone is about 5.6 TB.")
+    A("- **Platform limits** — GitHub blocks files over 100 MiB; Git LFS on Free/Pro "
+      "includes 10 GiB of storage and bandwidth.")
+    A("")
+    A("`models/manifest.json` records the exact revision of everything you fetched and *is* "
+      "committed, so a setup can be reproduced without shipping the weights.")
+    A("")
+    A("---")
+    A("")
     A("## Will it run on my machine?")
     A("")
     A("```bash")

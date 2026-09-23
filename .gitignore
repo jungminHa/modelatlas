@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
+# Model weights are never committed — see SCHEMA.md "Downloading weights".
+# Note: the pattern must be models/* not models/, because git does not descend
+# into an ignored directory and the negation below would never apply.
+models/*
+!models/manifest.json

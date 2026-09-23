@@ -21,6 +21,14 @@ time and money. The validator reports these as warnings; a warning does not bloc
 **Put evidence in `sources`.** Readers need to tell a vendor announcement apart from an
 independent benchmark.
 
+**Record `repo_id` so the model can be fetched.** It is the exact Hugging Face repo
+(`Qwen/Qwen3-Embedding-8B`), not an organization page. **Check that it resolves before
+committing it** — a wrong path fails at download time, not at review time:
+
+```python
+from huggingface_hub import HfApi; HfApi().model_info("org/model")
+```
+
 **Record `params_b` when the figure is public.** It is the numeric total parameter count in
 billions, and it is what lets `scripts/check_env.py` estimate VRAM for readers whose hardware
 you know nothing about. For MoE models use the **total**, not the active count, and note the
