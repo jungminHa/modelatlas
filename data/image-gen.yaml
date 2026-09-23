@@ -12,6 +12,7 @@
   commercial_use: conditional
   license_note: Licensing differs per variant (dev, schnell, ...) — check each one
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -37,6 +38,7 @@
   commercial_use: conditional
   license_note: Free below an annual-revenue threshold; a commercial license is required above it
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -62,6 +64,7 @@
   commercial_use: conditional
   license_note: License needs verification
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -87,6 +90,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >

@@ -12,6 +12,7 @@
   commercial_use: yes
   license_note: Confirm the license per model size
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -38,6 +39,7 @@
   commercial_use: conditional
   license_note: License needs verification
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -65,6 +67,7 @@
   commercial_use: conditional
   license_note: License needs verification
   params: 241B (flagship)
+  params_b: 241
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -90,6 +93,7 @@
   commercial_use: yes
   license_note: null
   params: 32B
+  params_b: 32
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >

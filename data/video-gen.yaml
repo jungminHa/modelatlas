@@ -12,6 +12,7 @@
   commercial_use: yes
   license_note: null
   params: 5B (GGUF variant)
+  params_b: 5
   vram_min_gb: 8
   runs_on: [gpu]
   specialization: >
@@ -38,6 +39,7 @@
   commercial_use: conditional
   license_note: License needs verification
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -64,6 +66,7 @@
   commercial_use: conditional
   license_note: Check the monthly-active-user restriction clause
   params: null
+  params_b: null
   vram_min_gb: 14
   runs_on: [gpu]
   specialization: >
@@ -89,6 +92,7 @@
   commercial_use: yes
   license_note: Confirm per variant
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -114,6 +118,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >

@@ -148,6 +148,29 @@ Guessing a VRAM requirement or a license costs the reader real money. Unverified
 
 ---
 
+## Will it run on my machine?
+
+```bash
+python3 scripts/check_env.py
+```
+
+Detects your GPU or unified memory and reports, per model, whether it fits. Nothing is downloaded and nothing leaves your machine.
+
+```
+Accelerator  mps — Apple M1 Pro (14-core GPU)
+unified memory 16GB  →  usable budget 12.0GB
+
+✅ runs          5
+❌ too large    10
+❓ unknown      26
+```
+
+Requirements come from `vram_min_gb` when a figure has been published, and are otherwise estimated from `params_b` — estimates are printed with a `~` so they are never mistaken for measured values. For mixture-of-experts models the **total** parameter count drives memory, not the active count: a 552B/8B-active model still needs all experts resident.
+
+`--all` includes models that do not fit, `--precision int8|fp16` changes the assumed quantization, and `--json` emits machine-readable output.
+
+---
+
 <a id="composing-models"></a>
 
 ## Composing models

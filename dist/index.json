@@ -82,6 +82,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "1.55B",
+   "params_b": 1.55,
    "vram_min_gb": null,
    "runs_on": [
     "gpu",
@@ -126,6 +127,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -166,6 +168,7 @@
    "commercial_use": "conditional",
    "license_note": "Verify the NVIDIA model license",
    "params": "2.5B",
+   "params_b": 2.5,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -207,6 +210,7 @@
    "commercial_use": "conditional",
    "license_note": "Verify the NVIDIA model license",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -248,6 +252,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "smallest model 27MB",
+   "params_b": 0.027,
    "vram_min_gb": 0,
    "runs_on": [
     "cpu",
@@ -292,6 +297,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "8B",
+   "params_b": 8,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -340,6 +346,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu",
@@ -383,6 +390,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu",
@@ -424,6 +432,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -464,6 +473,7 @@
    "commercial_use": "conditional",
    "license_note": "Licensing differs per variant (dev, schnell, ...) — check each one",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -507,6 +517,7 @@
    "commercial_use": "conditional",
    "license_note": "Free below an annual-revenue threshold; a commercial license is required above it",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -549,6 +560,7 @@
    "commercial_use": "conditional",
    "license_note": "License needs verification",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -592,6 +604,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -631,6 +644,8 @@
    "commercial_use": "conditional",
    "license_note": "Verify the license text directly",
    "params": "2.8T total / 104B active (MoE)",
+   "params_b": 2800,
+   "params_note": "MoE — all experts must be resident; 104B active per token",
    "context": "1M",
    "vram_min_gb": null,
    "runs_on": [
@@ -680,6 +695,8 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "552B total / 8B active (prefill), 16B active (decode)",
+   "params_b": 552,
+   "params_note": "MoE — all experts must be resident; 8B/16B active per token",
    "context": "1M",
    "vram_min_gb": null,
    "runs_on": [
@@ -735,6 +752,7 @@
    "commercial_use": "conditional",
    "license_note": "License changed relative to 5.2 — verify the text directly",
    "params": "753B",
+   "params_b": 753,
    "context": null,
    "vram_min_gb": null,
    "runs_on": [
@@ -783,6 +801,8 @@
    "commercial_use": "yes",
    "license_note": "Plain MIT, unlike the larger GLM-5.3",
    "params": "320B total / 18B active (MoE)",
+   "params_b": 320,
+   "params_note": "MoE — all experts must be resident; 18B active per token",
    "context": null,
    "vram_min_gb": null,
    "runs_on": [
@@ -823,6 +843,7 @@
    "commercial_use": "yes",
    "license_note": "Qwen models are generally Apache-2.0; confirm per model",
    "params": "27B (dense)",
+   "params_b": 27,
    "context": null,
    "vram_min_gb": null,
    "runs_on": [
@@ -869,6 +890,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "context": null,
    "vram_min_gb": null,
    "runs_on": [
@@ -916,6 +938,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "27B (dense)",
+   "params_b": 27,
    "context": null,
    "vram_min_gb": 24,
    "runs_on": [
@@ -958,6 +981,7 @@
    "commercial_use": "conditional",
    "license_note": "Google Gemma Terms of Use apply; check the prohibited-use clauses",
    "params": null,
+   "params_b": null,
    "context": null,
    "vram_min_gb": 16,
    "runs_on": [
@@ -1003,6 +1027,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "82M",
+   "params_b": 0.082,
    "vram_min_gb": 0,
    "runs_on": [
     "cpu",
@@ -1048,6 +1073,7 @@
    "commercial_use": "yes",
    "license_note": "Code is MIT; check separately for constraints tied to training data provenance",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1090,6 +1116,7 @@
    "commercial_use": "no",
    "license_note": "Non-commercial use only. It is the most-downloaded TTS model on Hugging Face, but shipping it in a commercial product means ripping it back out later.\n",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1131,6 +1158,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1171,6 +1199,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1211,6 +1240,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "5B (GGUF variant)",
+   "params_b": 5,
    "vram_min_gb": 8,
    "runs_on": [
     "gpu"
@@ -1253,6 +1283,7 @@
    "commercial_use": "conditional",
    "license_note": "License needs verification",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1297,6 +1328,7 @@
    "commercial_use": "conditional",
    "license_note": "Check the monthly-active-user restriction clause",
    "params": null,
+   "params_b": null,
    "vram_min_gb": 14,
    "runs_on": [
     "gpu"
@@ -1339,6 +1371,7 @@
    "commercial_use": "yes",
    "license_note": "Confirm per variant",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1380,6 +1413,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1422,6 +1456,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1475,6 +1510,7 @@
    "commercial_use": "conditional",
    "license_note": "AGPL-3.0 — a separate commercial license is required for closed-source distribution",
    "params": "Nano to Extra Large (5 sizes)",
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu",
@@ -1532,6 +1568,7 @@
    "commercial_use": "conditional",
    "license_note": "Verify the Meta model license",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1575,6 +1612,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1616,6 +1654,7 @@
    "commercial_use": "conditional",
    "license_note": "License needs verification",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1658,6 +1697,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu",
@@ -1700,6 +1740,7 @@
    "commercial_use": "yes",
    "license_note": "Confirm the license per model size",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1741,6 +1782,7 @@
    "commercial_use": "conditional",
    "license_note": "License needs verification",
    "params": null,
+   "params_b": null,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1788,6 +1830,7 @@
    "commercial_use": "conditional",
    "license_note": "License needs verification",
    "params": "241B (flagship)",
+   "params_b": 241,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"
@@ -1831,6 +1874,7 @@
    "commercial_use": "yes",
    "license_note": null,
    "params": "32B",
+   "params_b": 32,
    "vram_min_gb": null,
    "runs_on": [
     "gpu"

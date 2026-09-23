@@ -12,6 +12,7 @@
   commercial_use: yes
   license_note: null
   params: 1.55B
+  params_b: 1.55
   vram_min_gb: null
   runs_on: [gpu, cpu]
   specialization: >
@@ -37,6 +38,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -63,6 +65,7 @@
   commercial_use: conditional
   license_note: Verify the NVIDIA model license
   params: 2.5B
+  params_b: 2.5
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -87,6 +90,7 @@
   commercial_use: conditional
   license_note: Verify the NVIDIA model license
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -112,6 +116,7 @@
   commercial_use: yes
   license_note: null
   params: smallest model 27MB
+  params_b: 0.027
   vram_min_gb: 0
   runs_on: [cpu, edge]
   specialization: >

@@ -13,6 +13,8 @@
   commercial_use: conditional
   license_note: Verify the license text directly
   params: 2.8T total / 104B active (MoE)
+  params_b: 2800
+  params_note: MoE — all experts must be resident; 104B active per token
   context: 1M
   vram_min_gb: null
   runs_on: [gpu]
@@ -44,6 +46,8 @@
   commercial_use: yes
   license_note: null
   params: 552B total / 8B active (prefill), 16B active (decode)
+  params_b: 552
+  params_note: MoE — all experts must be resident; 8B/16B active per token
   context: 1M
   vram_min_gb: null
   runs_on: [gpu]
@@ -79,6 +83,7 @@
   commercial_use: conditional
   license_note: License changed relative to 5.2 — verify the text directly
   params: 753B
+  params_b: 753
   context: null
   vram_min_gb: null
   runs_on: [gpu]
@@ -109,6 +114,8 @@
   commercial_use: yes
   license_note: Plain MIT, unlike the larger GLM-5.3
   params: 320B total / 18B active (MoE)
+  params_b: 320
+  params_note: MoE — all experts must be resident; 18B active per token
   context: null
   vram_min_gb: null
   runs_on: [gpu]
@@ -138,6 +145,7 @@
   commercial_use: yes
   license_note: Qwen models are generally Apache-2.0; confirm per model
   params: 27B (dense)
+  params_b: 27
   context: null
   vram_min_gb: null
   runs_on: [gpu]
@@ -169,6 +177,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   context: null
   vram_min_gb: null
   runs_on: [gpu]
@@ -199,6 +208,7 @@
   commercial_use: yes
   license_note: null
   params: 27B (dense)
+  params_b: 27
   context: null
   vram_min_gb: 24
   runs_on: [gpu, apple-silicon]

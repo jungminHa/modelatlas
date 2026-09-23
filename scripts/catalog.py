@@ -59,3 +59,39 @@ def by_category(models):
 def can_connect(a, b):
     """Connectable when any output type of `a` is accepted as an input of `b`."""
     return bool(set(a.get("outputs") or []) & set(b.get("inputs") or []))
+
+
+# ─────────────────────────────────────────────────────────────
+# VRAM estimation
+#
+# Where a vendor or a benchmark states a figure we use it (vram_min_gb).
+# Otherwise we estimate from total parameter count:
+#
+#     vram_gb = params_b × bytes_per_param × 1.2
+#
+# The 1.2 covers activations and a modest KV cache. Bytes per parameter
+# follow the usual quantization levels. This is an ESTIMATE and is always
+# labelled as such — never presented as a measured requirement.
+#
+# For mixture-of-experts models the TOTAL parameter count drives VRAM, not
+# the active count: every expert has to be resident to be routed to.
+# ─────────────────────────────────────────────────────────────
+
+BYTES_PER_PARAM = {"fp16": 2.0, "int8": 1.0, "int4": 0.55}
+OVERHEAD = 1.2
+
+
+def estimate_vram(params_b, precision="int4"):
+    """Estimated GB of VRAM for a model of `params_b` billion parameters."""
+    if not params_b:
+        return None
+    return round(params_b * BYTES_PER_PARAM[precision] * OVERHEAD, 1)
+
+
+def vram_requirement(m, precision="int4"):
+    """(gb, source) — source is 'stated' or 'estimated'; (None, None) if unknown."""
+    stated = m.get("vram_min_gb")
+    if stated is not None and stated > 0:
+        return float(stated), "stated"
+    est = estimate_vram(m.get("params_b"), precision)
+    return (est, "estimated") if est else (None, None)

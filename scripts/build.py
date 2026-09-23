@@ -107,6 +107,35 @@ def build_readme(models):
 
     A("---")
     A("")
+    A("## Will it run on my machine?")
+    A("")
+    A("```bash")
+    A("python3 scripts/check_env.py")
+    A("```")
+    A("")
+    A("Detects your GPU or unified memory and reports, per model, whether it fits. "
+      "Nothing is downloaded and nothing leaves your machine.")
+    A("")
+    A("```")
+    A("Accelerator  mps — Apple M1 Pro (14-core GPU)")
+    A("unified memory 16GB  →  usable budget 12.0GB")
+    A("")
+    A("✅ runs          5")
+    A("❌ too large    10")
+    A("❓ unknown      26")
+    A("```")
+    A("")
+    A("Requirements come from `vram_min_gb` when a figure has been published, and are "
+      "otherwise estimated from `params_b` — estimates are printed with a `~` so they are "
+      "never mistaken for measured values. For mixture-of-experts models the **total** "
+      "parameter count drives memory, not the active count: a 552B/8B-active model still "
+      "needs all experts resident.")
+    A("")
+    A("`--all` includes models that do not fit, `--precision int8|fp16` changes the "
+      "assumed quantization, and `--json` emits machine-readable output.")
+    A("")
+    A("---")
+    A("")
     A('<a id="composing-models"></a>')
     A("")
     A("## Composing models")

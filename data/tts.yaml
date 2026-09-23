@@ -13,6 +13,7 @@
   commercial_use: yes
   license_note: null
   params: 82M
+  params_b: 0.082
   vram_min_gb: 0
   runs_on: [cpu, gpu, edge]
   specialization: >
@@ -38,6 +39,7 @@
   commercial_use: yes
   license_note: Code is MIT; check separately for constraints tied to training data provenance
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -65,6 +67,7 @@
     Non-commercial use only. It is the most-downloaded TTS model on Hugging Face, but
     shipping it in a commercial product means ripping it back out later.
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -90,6 +93,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -115,6 +119,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >

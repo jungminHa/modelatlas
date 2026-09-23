@@ -12,6 +12,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -44,6 +45,7 @@
   commercial_use: conditional
   license_note: AGPL-3.0 — a separate commercial license is required for closed-source distribution
   params: Nano to Extra Large (5 sizes)
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu, cpu, edge]
   specialization: >
@@ -78,6 +80,7 @@
   commercial_use: conditional
   license_note: Verify the Meta model license
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -106,6 +109,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -134,6 +138,7 @@
   commercial_use: conditional
   license_note: License needs verification
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu]
   specialization: >
@@ -158,6 +163,7 @@
   commercial_use: yes
   license_note: null
   params: null
+  params_b: null
   vram_min_gb: null
   runs_on: [gpu, cpu]
   specialization: >

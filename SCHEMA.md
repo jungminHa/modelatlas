@@ -37,8 +37,10 @@ later would mean revisiting every entry, so it is required from the start.
   license_note: null
 
   # ── Runtime requirements ──
-  params: 8B
-  vram_min_gb: 16
+  params: 8B                      # free text, for display
+  params_b: 8                     # TOTAL parameters in billions, numeric
+  params_note: null               # e.g. MoE caveats
+  vram_min_gb: 16                 # stated figure only; null if unverified
   runs_on: [gpu]                  # cpu | gpu | edge | apple-silicon
 
   # ── What it is actually good at (the basis for choosing) ──
@@ -146,6 +148,38 @@ OSI open-source — they are open-weight.** The `openness` field records that di
 `commercial_use` records the practical consequence.
 
 ---
+
+## VRAM requirements
+
+Two fields feed the hardware check in `scripts/check_env.py`:
+
+- **`vram_min_gb`** — a figure stated by the vendor or a benchmark. Leave `null` if you
+  have not seen one; do not derive it yourself.
+- **`params_b`** — total parameters in billions, as a number. The checker estimates VRAM
+  from this when no stated figure exists.
+
+The estimate is:
+
+```
+vram_gb = params_b × bytes_per_param × 1.2
+          fp16 2.0 · int8 1.0 · int4 0.55
+```
+
+The 1.2 covers activations and a modest KV cache. Estimated figures are always printed
+with a `~` prefix so they are never mistaken for measured requirements.
+
+> **Mixture-of-experts:** `params_b` is the **total**, not the active, parameter count.
+> Every expert must be resident in memory to be routed to, so a 552B/8B-active model needs
+> VRAM for 552B. Record the active count in `params_note`.
+
+Checking your own machine:
+
+```bash
+python3 scripts/check_env.py               # what runs here
+python3 scripts/check_env.py --all         # include models that do not fit
+python3 scripts/check_env.py --precision int8
+python3 scripts/check_env.py --json        # machine-readable
+```
 
 ## Validation
 

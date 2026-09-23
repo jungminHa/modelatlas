@@ -21,6 +21,19 @@ time and money. The validator reports these as warnings; a warning does not bloc
 **Put evidence in `sources`.** Readers need to tell a vendor announcement apart from an
 independent benchmark.
 
+**Record `params_b` when the figure is public.** It is the numeric total parameter count in
+billions, and it is what lets `scripts/check_env.py` estimate VRAM for readers whose hardware
+you know nothing about. For MoE models use the **total**, not the active count, and note the
+active count in `params_note`.
+
+**Do not invent `vram_min_gb`.** That field is for figures someone actually published. If you
+only have a parameter count, fill `params_b` and leave `vram_min_gb` null — the checker will
+estimate and label it as an estimate.
+
+**Improving `runs_on` is high-value.** Most entries say only `gpu`, which forces the checker
+to report "support not confirmed" on Apple Silicon and ROCm machines. Adding
+`apple-silicon` where you have verified it removes real uncertainty for readers.
+
 **Get `inputs` / `outputs` right.** These two fields decide whether models may be connected.
 An error here produces invalid pipelines in the composition editor.
 
