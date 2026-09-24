@@ -121,6 +121,11 @@ def build_readme(models):
     A("Filters: `--max-size GB`, `--redistributable`, `--commercial`, `--fit-disk` "
       "(keeps 20GB headroom), `--dry-run`.")
     A("")
+    A("Large downloads do fail partway — Hugging Face's transfer backend returns "
+      "transient errors. Partial data is kept, so re-running the same command resumes "
+      "rather than restarts, and `--status` lists any incomplete download with the exact "
+      "command to resume or discard it.")
+    A("")
     A("**This repository does not host model weights.** `fetch.py` pulls from the original "
       "publisher into a local `models/` directory that is gitignored, and prints the "
       "license terms before downloading anything.")

@@ -137,6 +137,10 @@ def fetch_one(m, args, man):
         if "401" in msg or "403" in msg or "gated" in msg.lower():
             print("    This repo is gated. Accept the terms on the model page,")
             print("    then authenticate:  hf auth login")
+        elif "CAS" in msg or "retries" in msg or "Connection" in msg:
+            print(f"    {msg.splitlines()[0][:110]}")
+            print(f"    Transient transfer error. Partial data is kept, so re-running")
+            print(f"    `python3 scripts/fetch.py {m['id']}` resumes rather than restarts.")
         else:
             print(f"    {msg.splitlines()[0][:120]}")
         return False
@@ -174,15 +178,37 @@ def cmd_list(models):
 
 def cmd_status(models):
     man = load_manifest()
-    if not man["models"]:
-        print("  Nothing downloaded yet.  python3 scripts/fetch.py --list")
-        return
-    total = sum(v.get("size_gb") or 0 for v in man["models"].values())
-    print(f"  {len(man['models'])} models · {total:.1f}GB in models/\n")
-    for mid, v in sorted(man["models"].items()):
-        cu = {"no": "⛔ non-commercial", "conditional": "⚠️  conditional"}.get(
-            v.get("commercial_use"), "")
-        print(f"  {mid:<28}{v.get('size_gb', 0):>7.2f}GB  {v.get('license') or '—':<22}{cu}")
+    index = {m["id"]: m for m in models}
+    on_disk = {d for d in (os.listdir(MODELS_DIR) if os.path.isdir(MODELS_DIR) else [])
+               if os.path.isdir(os.path.join(MODELS_DIR, d))}
+
+    if man["models"]:
+        total = sum(v.get("size_gb") or 0 for v in man["models"].values())
+        print(f"  {len(man['models'])} models · {total:.1f}GB recorded\n")
+        for mid, v in sorted(man["models"].items()):
+            cu = {"no": "⛔ non-commercial", "conditional": "⚠️  conditional"}.get(
+                v.get("commercial_use"), "")
+            print(f"  {mid:<28}{v.get('size_gb', 0):>7.2f}GB  "
+                  f"{v.get('license') or '—':<22}{cu}")
+    else:
+        print("  Nothing recorded yet.  python3 scripts/fetch.py --list")
+
+    # Directories with no manifest entry are interrupted downloads. They occupy
+    # disk but are not usable, and nothing else reports them.
+    orphans = sorted(on_disk - set(man["models"]))
+    if orphans:
+        waste = sum(dir_size_gb(os.path.join(MODELS_DIR, d)) for d in orphans)
+        print(f"\n  ⚠️  {len(orphans)} incomplete download(s) · {waste:.1f}GB on disk")
+        for d in orphans:
+            gb = dir_size_gb(os.path.join(MODELS_DIR, d))
+            want = (index.get(d) or {}).get("download_gb")
+            of = f" of {want}GB" if want else ""
+            print(f"     {d:<28}{gb:>7.2f}GB{of}")
+        print(f"\n     Resume:  python3 scripts/fetch.py {' '.join(orphans)}")
+        print(f"     Discard: rm -rf " + " ".join(f"models/{d}" for d in orphans))
+
+    free = shutil.disk_usage(ROOT).free / 1024**3
+    print(f"\n  Disk free: {free:,.0f}GB")
 
 
 def main():

@@ -8,7 +8,79 @@
    "license": "Apache-2.0",
    "commercial_use": "yes",
    "fetched": "2026-09-23"
+  },
+  "rf-detr": {
+   "repo_id": "Roboflow/rf-detr-base",
+   "revision": "7b95b089788e6c7db56d5ea9b0a07ca08ea6ac0a",
+   "size_gb": 0.12,
+   "license": "Apache-2.0",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "moonshine": {
+   "repo_id": "UsefulSensors/moonshine-base",
+   "revision": "7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf",
+   "size_gb": 0.23,
+   "license": "MIT",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "sam-2": {
+   "repo_id": "facebook/sam2-hiera-large",
+   "revision": "e6a8e8809b8f1bfa2238b6d080f3d05cc76bd251",
+   "size_gb": 1.67,
+   "license": "Apache-2.0",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "bge-reranker-v2": {
+   "repo_id": "BAAI/bge-reranker-v2-m3",
+   "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+   "size_gb": 2.14,
+   "license": "Apache-2.0",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "florence-2": {
+   "repo_id": "microsoft/Florence-2-large",
+   "revision": "21a599d414c4d928c9032694c424fb94458e3594",
+   "size_gb": 2.9,
+   "license": "MIT",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "bge-m3": {
+   "repo_id": "BAAI/bge-m3",
+   "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+   "size_gb": 4.27,
+   "license": "MIT",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "f5-tts": {
+   "repo_id": "SWivid/F5-TTS",
+   "revision": "84e5a410d9cead4de2f847e7c9369a6440bdfaca",
+   "size_gb": 6.28,
+   "license": "MIT",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "chatterbox": {
+   "repo_id": "ResembleAI/chatterbox",
+   "revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+   "size_gb": 12.91,
+   "license": "MIT",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
+  },
+  "qwen3-embedding-8b": {
+   "repo_id": "Qwen/Qwen3-Embedding-8B",
+   "revision": "1d8ad4ca9b3dd8059ad90a75d4983776a23d44af",
+   "size_gb": 14.11,
+   "license": "Apache-2.0",
+   "commercial_use": "yes",
+   "fetched": "2026-09-24"
   }
  },
- "updated": "2026-09-23"
+ "updated": "2026-09-24"
 }
